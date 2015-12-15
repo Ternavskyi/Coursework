@@ -90,45 +90,45 @@
     'Функція порівняння двох елементів, та функція перестановки порівнюваних елементів.
     '==================================================================================================================
 
-    Private Function Comparison(PIndexRow, NIndexRow) As Boolean
-        Dim P = BMatrixR(PIndexRow, 1)
-        Dim N = BMatrixR(NIndexRow, 1)
-        Dim Answer = False
-        If P > N Then
-            Answer = True
-        End If
-        ' провірка чи потрібна візуалізація з форми
+    Private Function Comparison(PIndexRow, NIndexRow) As Boolean 'Comparison (перевірка) порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
+        Dim P = BMatrixR(PIndexRow, 1) 'Previous (Попередній) елемент матриці BMatrixR(r, 1).
+        Dim N = BMatrixR(NIndexRow, 1) 'Next (Слідуючий) елемент матриці BMatrixR(r+1, 1).
+        Dim Answer = False 'Присвоюємо Answer (відповідь) вочаткове значення False.
+        If P > N Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
+            Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
+        End If 'Закінчення перевірки.
+        ' провірка чи потрібна візуалізація з форми.
         ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
-        Return Answer
+        Return Answer 'Повертає значенння Answer (відповідь) у саб метода сортування.
     End Function
 
-    Private Function Transposition(PIndexRow, NIndexRow) As Boolean
-        Dim PAgent As Integer
-        Dim NAgent As Integer
-        PAgent = BMatrixR(NIndexRow, 1)
-        NAgent = BMatrixR(NIndexRow, 0)
-        BMatrixR(NIndexRow, 1) = BMatrixR(PIndexRow, 1)
-        BMatrixR(NIndexRow, 0) = BMatrixR(PIndexRow, 0)
-        BMatrixR(PIndexRow, 1) = PAgent
-        BMatrixR(PIndexRow, 0) = NAgent
+    Private Function Transposition(PIndexRow, NIndexRow) As Boolean 'Transposition (перестановка) двох елементів місцями BMatrixR(r, 1) і BMatrixR(r+1, 1).
+        Dim IndexAgent As Integer 'IndexAgent, Index (індекс) Agent (просередник) зміння яка запамятовує значення BMatrixR(r+1, 0).
+        Dim ValueAgent As Integer 'IndexAgent, Value (значення) Agent (просередник) зміння яка запамятовує значення BMatrixR(r+1, 1).
+        IndexAgent = BMatrixR(NIndexRow, 0) 'Надаємо IndexAgent значення BMatrixR(r+1, 0).
+        ValueAgent = BMatrixR(NIndexRow, 1) 'Надаємо ValueAgent значення BMatrixR(r+1, 1).
+        BMatrixR(NIndexRow, 0) = BMatrixR(PIndexRow, 0) 'Присвоєння комірці BMatrixR(r+1, 0) значення комірки BMatrixR(r, 0).
+        BMatrixR(NIndexRow, 1) = BMatrixR(PIndexRow, 1) 'Присвоєння комірці BMatrixR(r+1, 1) значення комірки BMatrixR(r, 1).
+        BMatrixR(PIndexRow, 0) = IndexAgent 'Присвоєння комірці BMatrixR(r, 0) значення комірки BMatrixR(r+1, 0).
+        BMatrixR(PIndexRow, 1) = ValueAgent 'Присвоєння комірці BMatrixR(r, 1) значення комірки BMatrixR(r+1, 1).
     End Function
     'Саби методів сортування.
     '==================================================================================================================
 
-    Private Sub Bubble()
-        Dim r As Integer
-        Dim check As Integer
+    Private Sub Bubble() 'Метод сортування бульбашкою.
+        Dim r As Integer 'Змінна яка буде перебирати рядки.
+        Dim check As Integer 'check (перевірка) зміна для перевірки чи проводився захід у функцію Transposition за весь цикл проходу по всіх рядках матриці BMatrixR.
         Debug.Print("**********************************************************************************")
-        Do
-            check = 0
-            For r = 0 To Cize - 2
-                If Comparison(r, r + 1) Then
-                    Transposition(r, r + 1)
-                    check = 1
-                    ' кількість перестановок
-                End If
-            Next
-        Loop Until check = 0
+        Do 'Заходимо в цикл.
+            check = 0 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл не заходив.
+            For r = 0 To Cize - 2 'Перебирання стовпців.
+                If Comparison(r, r + 1) Then 'Звернення до функції Comparison для порівняння значень.
+                    Transposition(r, r + 1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
+                    check = 1 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл заходив.
+                    ' кількість перестановок.
+                End If 'Закінчення перевірки.
+            Next 'Слідуючий рядок.
+        Loop Until check = 0 'Робимо перевірку уммови оскільки в нас цикл пряцює доки check не дорівнює нулю.
         For r = 0 To Cize - 1
             Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
         Next
@@ -139,6 +139,8 @@ End Module
 '==================================================================================================================
 'P... - Previous (Попередній)
 'N... - Next (Слідуючий)
+'Answer - Відповідь
+'Value - Значення
 '...Agent... - Посередник
 '...Index... - Індекс
 'B... - Backup (Резервний)
@@ -151,3 +153,4 @@ End Module
 'Generate - Генерування
 'Comparison - Перевірка
 'Transposition - Перестановка
+'check - Перевірка
