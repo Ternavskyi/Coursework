@@ -9,7 +9,7 @@
         Call Generate()
         Call Rebuild()
         Call Backup()
-        Call Bubble()
+        Call Selection()
     End Sub
 
     'Саби які відповідають за генерування, перебудову і дублювання матриці.
@@ -35,7 +35,7 @@
     End Sub
 
     Private Sub Rebuild() 'Перебудова матриці із вигляду MatrixI(n,n) у вигляд MatrixR(n,2), де перший стовпець це індекс рядка MatrixI, а другий це найменші елемент рядка MatrixI.
-        Dim Min As Integer 'Змінні які запамятовують мінімальниий і максимальний елемент у рядку матриці.
+        Dim Min As Integer 'Змінні які запамятовують мінімальниий елемент у рядку матриці.
         Dim r As Integer, c As Integer 'Змінні які будуть перебирати рядки і стовпці.
         ReDim MatrixR(Cize, 2) 'Задання розмірності перебудованої матриці.
         Min = MatrixI(0, 0) 'Припущення що в першому рядку мінімальний елемент знаходиться у позиції (0,0).
@@ -51,7 +51,6 @@
             Min = MatrixI(r + 1, 0) 'Зміщення припущення мінімального елемента рядка на слідуючий рядок.
             Debug.Print(MatrixR(r, 0) & "|" & MatrixR(r, 1))
         Next 'Слідуючий рядок.
-        Debug.Print("**********************************************************************************")
     End Sub
 
     Private Sub Backup() 'Дублювання MatrixR(n,2) у BMatrixR(n,2).
@@ -112,6 +111,7 @@
         BMatrixR(PIndexRow, 0) = IndexAgent 'Присвоєння комірці BMatrixR(r, 0) значення комірки BMatrixR(r+1, 0).
         BMatrixR(PIndexRow, 1) = ValueAgent 'Присвоєння комірці BMatrixR(r, 1) значення комірки BMatrixR(r+1, 1).
     End Function
+
     'Саби методів сортування.
     '==================================================================================================================
 
@@ -133,6 +133,25 @@
             Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
         Next
     End Sub
+
+    Private Sub Selection()
+        Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
+        Dim Min As Integer 'Змінні які запамятовують мінімальниий елемент у стовпці матриці.
+        Debug.Print("**********************************************************************************")
+        For r1 = 0 To Cize - 2
+            Min = r1
+            For r2 = r1 + 1 To Cize - 1
+                If Comparison(Min, r2) Then
+                    Min = r2
+                End If
+            Next
+            Transposition(r1, Min) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
+        Next
+        For r = 0 To Cize - 1
+            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
+        Next
+    End Sub
+
 End Module
 
 'Пояснення:
