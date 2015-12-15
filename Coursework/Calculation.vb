@@ -134,19 +134,19 @@
         Next
     End Sub
 
-    Private Sub Selection()
+    Private Sub Selection() 'Метод сортування вибором.
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
-        Dim Min As Integer 'Змінні які запамятовують мінімальниий елемент у стовпці матриці.
+        Dim rMin As Integer 'Змінні які запамятовують мінімальниий елемент у стовпці матриці.
         Debug.Print("**********************************************************************************")
-        For r1 = 0 To Cize - 2
-            Min = r1
-            For r2 = r1 + 1 To Cize - 1
-                If Comparison(Min, r2) Then
-                    Min = r2
-                End If
-            Next
-            Transposition(r1, Min) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
-        Next
+        For r1 = 0 To Cize - 2 'Перебирання стовпців починаючи з нульового.
+            rMin = r1 'Припускаємо що мінімальний елемент знаходиться на r1 рядку
+            For r2 = r1 + 1 To Cize - 1 'Перебирання стовпців починаючи з першого.
+                If Comparison(rMin, r2) Then 'Звернення до функції Comparison для порівняння значень.
+                    rMin = r2 'Прив виконання умови припускаємо що мінімальний елемент знаходиться у r2 рядку.
+                End If 'Закінчення перевірки.
+            Next 'Слідуючий рядок r2.
+            Transposition(r1, rMin) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
+        Next 'Слідуючий рядок r1.
         For r = 0 To Cize - 1
             Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
         Next
