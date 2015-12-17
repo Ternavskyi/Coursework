@@ -9,7 +9,7 @@
         Call Generate()
         Call Rebuild()
         Call Backup()
-        Call Selection()
+        Call Bubble()
     End Sub
 
     'Саби які відповідають за генерування, перебудову і дублювання матриці.
@@ -89,15 +89,24 @@
     'Функція порівняння двох елементів, та функція перестановки порівнюваних елементів.
     '==================================================================================================================
 
-    Private Function Comparison(PIndexRow, NIndexRow) As Boolean 'Comparison (перевірка) порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
-        Dim P = BMatrixR(PIndexRow, 1) 'Previous (Попередній) елемент матриці BMatrixR(r, 1).
-        Dim N = BMatrixR(NIndexRow, 1) 'Next (Слідуючий) елемент матриці BMatrixR(r+1, 1).
+    Private Function Comparison(PIndexRow, NIndexRow, SpecificAgent) As Boolean 'Comparison (перевірка) порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
         Dim Answer = False 'Присвоюємо Answer (відповідь) вочаткове значення False.
-        If P > N Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
-            Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
-        End If 'Закінчення перевірки.
-        ' провірка чи потрібна візуалізація з форми.
-        ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
+        If TypeOf SpecificAgent Is String Then
+            Dim P = BMatrixR(PIndexRow, 1) 'Previous (Попередній) елемент матриці BMatrixR(r, 1).
+            Dim N = BMatrixR(NIndexRow, 1) 'Next (Слідуючий) елемент матриці BMatrixR(r+1, 1).
+            If P > N Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
+                Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
+            End If 'Закінчення перевірки.
+            ' провірка чи потрібна візуалізація з форми.
+            ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
+        Else
+            Dim P = BMatrixR(PIndexRow, 1) 'Previous (Попередній) елемент матриці BMatrixR(r, 1).
+            If SpecificAgent > P Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
+                Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
+            End If 'Закінчення перевірки.
+            ' провірка чи потрібна візуалізація з форми.
+            ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
+        End If
         Return Answer 'Повертає значенння Answer (відповідь) у саб метода сортування.
     End Function
 
@@ -118,11 +127,12 @@
     Private Sub Bubble() 'Метод сортування бульбашкою.
         Dim r As Integer 'Змінна яка буде перебирати рядки.
         Dim check As Integer 'check (перевірка) зміна для перевірки чи проводився захід у функцію Transposition за весь цикл проходу по всіх рядках матриці BMatrixR.
+        Dim SpecificAgent = "usual sorting method"
         Debug.Print("**********************************************************************************")
         Do 'Заходимо в цикл.
             check = 0 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл не заходив.
             For r = 0 To Cize - 2 'Перебирання стовпців.
-                If Comparison(r, r + 1) Then 'Звернення до функції Comparison для порівняння значень.
+                If Comparison(r, r + 1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                     Transposition(r, r + 1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
                     check = 1 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл заходив.
                     ' кількість перестановок.
@@ -136,17 +146,39 @@
 
     Private Sub Selection() 'Метод сортування вибором.
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
-        Dim rMin As Integer 'Змінні які запамятовують мінімальниий елемент у стовпці матриці.
+        Dim rMin As Integer 'Змінна яка запамятовує мінімальниий елемент у стовпці матриці.
+        Dim SpecificAgent = "usual sorting method"
         Debug.Print("**********************************************************************************")
         For r1 = 0 To Cize - 2 'Перебирання стовпців починаючи з нульового.
             rMin = r1 'Припускаємо що мінімальний елемент знаходиться на r1 рядку
             For r2 = r1 + 1 To Cize - 1 'Перебирання стовпців починаючи з першого.
-                If Comparison(rMin, r2) Then 'Звернення до функції Comparison для порівняння значень.
+                If Comparison(rMin, r2, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                     rMin = r2 'Прив виконання умови припускаємо що мінімальний елемент знаходиться у r2 рядку.
                 End If 'Закінчення перевірки.
             Next 'Слідуючий рядок r2.
             Transposition(r1, rMin) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
         Next 'Слідуючий рядок r1.
+        For r = 0 To Cize - 1
+            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
+        Next
+    End Sub
+
+    Private Sub Insertion()
+        Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
+        Dim Agent As Integer 'Змінна яка запамятовує BMatrixR(r1, 1).
+        Debug.Print("**********************************************************************************")
+        For r1 = 1 To Cize - 1
+            Agent = BMatrixR(r1, 1)
+            r2 = r1 - 1
+            Do While r2 >= 0
+                If Comparison(r2, r1, Agent) Then
+                    Exit Do
+                End If
+                BMatrixR(r2 + 1, 1) = BMatrixR(r2, 1)
+                r2 = r2 - 1
+            Loop
+            BMatrixR(r2 + 1, 1) = Agent
+        Next
         For r = 0 To Cize - 1
             Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
         Next
