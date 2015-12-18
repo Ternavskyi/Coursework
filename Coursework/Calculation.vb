@@ -27,7 +27,7 @@
         Debug.Print("**********************************************************************************")
         For r = 0 To Cize - 1 'Перебирання рядків.
             For c = 0 To Cize - 1 'Перебирання стовпців.
-                MatrixI(r, c) = Rnd.Next(-100, 101) 'Запис рандомних чисел в межіх [-100,100] у матрицю.
+                MatrixI(r, c) = Rnd.Next(-100, 201) 'Запис рандомних чисел в межіх [-100,100] у матрицю.
                 Debug.Write(MatrixI(r, c) & "|")
             Next 'Слідуючий стовпець.
             Debug.Print("")
@@ -179,16 +179,16 @@
                 BMatrixR(r2 + 1, 0) = BMatrixR(r2, 0) 'Присвоєння комірці BMatrixR(r2 + 1, 0) значення комірки BMatrixR(r2, 0).
                 BMatrixR(r2 + 1, 1) = BMatrixR(r2, 1) 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення комірки BMatrixR(r2, 1).
                 r2 = r2 - 1 'Перебирання рядків починаючи r1 і йдемо назад до нульового рядка.
-            Loop
+            Loop 'Закінчення циклу.
             BMatrixR(r2 + 1, 0) = NumberAgent 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення із буфера NumberAgent.
             BMatrixR(r2 + 1, 1) = SpecificAgent 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення із буфера SpecificAgent.
-        Next
+        Next 'Наступний рядок.
         For r = 0 To Cize - 1
             Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
         Next
     End Sub
 
-    Private Sub Gnome()
+    Private Sub Gnome() 'Метод сортування гнома.
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
         Debug.Print("**********************************************************************************")
@@ -212,28 +212,33 @@
         Next
     End Sub
 
-    Private Sub Shell()
+    Private Sub Shell() 'Метод сортування Шелла.
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
-        Dim Half As Integer
-        Dim Answer As Boolean
-        Half = Int(Cize \ 2)
-        Do
-            r1 = Half
-            Do
-                r2 = r1 - Half
-                Answer = True
+        Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
+        Dim Half As Integer 'Змінна яка приймає індекс середнього рядка масиву BMatrixR(,).
+        Dim Answer As Boolean 'Змміння яка приймає значення True або False
+        Debug.Print("**********************************************************************************")
+        Half = Cize \ 2 'Знаходження індексу середнього рядка масиву BMatrixR(,).
+        Do 'Заходимо в цикл.
+            r1 = Half 'Присвоюємо значенню r1 індекса рядка значення індекса середнього рядка.
+            Do 'Заходимо в цикл.
+                r2 = r1 - Half 'Присвоюємо значенню r2 індекса рядка значення різниці r1 і індекса середнього рядка.
+                Answer = True 'Присвоюємо зміній Answer початкове значення в циклі True.
                 Do
-                    If BMatrixR(r2, 1) <= BMatrixR(r2 + Half, 1) Then
-                        Answer = False
-                    Else
+                    If Comparison(r2, r2 + Half, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                         Transposition(r2, r2 + Half) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
-                    End If
-                    r2 = r2 - Half
-                Loop While (r2 >= 0 And Answer)
-                r1 = r1 + 1
-            Loop While r1 <= Cize - 1
-            Half = Half \ 2
-        Loop While Half > 0
+                    Else 'Якщо перевірка не виконалася тоді:
+                        Answer = False 'Присвоюємо зміній Answer значення False.
+                    End If 'Закінчення перевірки.
+                    r2 = r2 - Half 'Присвоюємо значенню r2 індекса рядка значення різниці r2 і індекса середнього рядка.
+                Loop While (r2 >= 0 And Answer) 'Закінчення циклу.
+                r1 = r1 + 1 'Переходимо на наступий рядок.
+            Loop While r1 <= Cize - 1 'Закінчення циклу.
+            Half = Half \ 2 'Знаходимо індекс середнього рядка із Half.
+        Loop While Half > 0 'Закінчення циклу.
+        For r = 0 To Cize - 1
+            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
+        Next
     End Sub
 
 End Module
