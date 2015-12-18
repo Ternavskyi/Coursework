@@ -9,7 +9,7 @@
         Call Generate()
         Call Rebuild()
         Call Backup()
-        Call Bubble()
+        Call Shell()
     End Sub
 
     'Саби які відповідають за генерування, перебудову і дублювання матриці.
@@ -127,11 +127,11 @@
     Private Sub Bubble() 'Метод сортування бульбашкою.
         Dim r As Integer 'Змінна яка буде перебирати рядки.
         Dim check As Integer 'check (перевірка) зміна для перевірки чи проводився захід у функцію Transposition за весь цикл проходу по всіх рядках матриці BMatrixR.
-        Dim SpecificAgent = "usual sorting method"
+        Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
         Debug.Print("**********************************************************************************")
         Do 'Заходимо в цикл.
             check = 0 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл не заходив.
-            For r = 0 To Cize - 2 'Перебирання стовпців.
+            For r = 0 To Cize - 2 'Перебирання рядків.
                 If Comparison(r, r + 1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                     Transposition(r, r + 1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
                     check = 1 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл заходив.
@@ -147,11 +147,11 @@
     Private Sub Selection() 'Метод сортування вибором.
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
         Dim rMin As Integer 'Змінна яка запамятовує мінімальниий елемент у стовпці матриці.
-        Dim SpecificAgent = "usual sorting method"
+        Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
         Debug.Print("**********************************************************************************")
-        For r1 = 0 To Cize - 2 'Перебирання стовпців починаючи з нульового.
+        For r1 = 0 To Cize - 2 'Перебирання рядків починаючи з нульового.
             rMin = r1 'Припускаємо що мінімальний елемент знаходиться на r1 рядку
-            For r2 = r1 + 1 To Cize - 1 'Перебирання стовпців починаючи з першого.
+            For r2 = r1 + 1 To Cize - 1 'Перебирання рядків починаючи з першого.
                 If Comparison(rMin, r2, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                     rMin = r2 'Прив виконання умови припускаємо що мінімальний елемент знаходиться у r2 рядку.
                 End If 'Закінчення перевірки.
@@ -163,25 +163,77 @@
         Next
     End Sub
 
-    Private Sub Insertion()
+    Private Sub Insertion() 'Метод сортування вставкою.
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
-        Dim Agent As Integer 'Змінна яка запамятовує BMatrixR(r1, 1).
+        Dim NumberAgent As Integer 'Змінна яка тимчасово запамятовує індекс рядка.
+        Dim SpecificAgent As Integer 'Змінна яка тимчасово запамятовує значення комірки.
         Debug.Print("**********************************************************************************")
-        For r1 = 1 To Cize - 1
-            Agent = BMatrixR(r1, 1)
-            r2 = r1 - 1
-            Do While r2 >= 0
-                If Comparison(r2, r1, Agent) Then
-                    Exit Do
-                End If
-                BMatrixR(r2 + 1, 1) = BMatrixR(r2, 1)
-                r2 = r2 - 1
+        For r1 = 1 To Cize - 1 'Перебирання рядків починаючи з першого.
+            NumberAgent = BMatrixR(r1, 0) 'Запамятовуємо значення комірки BMatrixR(r1, 0) оскільки індекс за один прохід може стати не актуальним.
+            SpecificAgent = BMatrixR(r1, 1) 'Запамятовуємо значення комірки BMatrixR(r1, 1) оскільки індекс за один прохід може стати не актуальним.
+            r2 = r1 - 1 'Перебирання рядків починаючи r1 і йдемо назад до нульового рядка.
+            Do While r2 >= 0 'Перевірка чи не дойшов цикл до нульового рядка.
+                If Comparison(r2, r1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень, при чому передаючи SpecificAgent який є числовим значенням і буде використовуватися у порівнянні значень на відміно від r1.
+                    Exit Do 'При поверненні True змінюємо рядок.
+                End If 'Закінчення перевірки.
+                BMatrixR(r2 + 1, 0) = BMatrixR(r2, 0) 'Присвоєння комірці BMatrixR(r2 + 1, 0) значення комірки BMatrixR(r2, 0).
+                BMatrixR(r2 + 1, 1) = BMatrixR(r2, 1) 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення комірки BMatrixR(r2, 1).
+                r2 = r2 - 1 'Перебирання рядків починаючи r1 і йдемо назад до нульового рядка.
             Loop
-            BMatrixR(r2 + 1, 1) = Agent
+            BMatrixR(r2 + 1, 0) = NumberAgent 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення із буфера NumberAgent.
+            BMatrixR(r2 + 1, 1) = SpecificAgent 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення із буфера SpecificAgent.
         Next
         For r = 0 To Cize - 1
             Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
         Next
+    End Sub
+
+    Private Sub Gnome()
+        Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
+        Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
+        Debug.Print("**********************************************************************************")
+        r1 = 1 'Присвоєння індекса рядка.
+        r2 = 2 'Присвоєння індекса рядка.
+        Do While r1 < Cize 'Цикл виконується доти, доки не пройде всі рядки тобто r1 < Cize.
+            If Comparison(r1 - 1, r1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
+                Transposition(r1 - 1, r1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
+                r1 = r1 - 1 'Повернення на один рядок назад для перевірки порядку.
+                If r1 = 0 Then 'Перевірка чи не дойшли до початку матриці, якщо так значить ідемо в кінець матриці.
+                    r1 = r2 'Присвоєння індекс слідуючого рядка.
+                    r2 = r2 + 1 'Перехід на один рядок вперед.
+                End If 'Закінчення перевірки.
+            Else 'При поверненні Comparison False, ідемо вперед до кінця матриці.
+                r1 = r2 'Присвоєння індекс слідуючого рядка.
+                r2 = r2 + 1 'Перехід на один рядок вперед.
+            End If 'Закінчення перевірки.
+        Loop 'Закінчення циклу
+        For r = 0 To Cize - 1
+            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
+        Next
+    End Sub
+
+    Private Sub Shell()
+        Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
+        Dim Half As Integer
+        Dim Answer As Boolean
+        Half = Int(Cize \ 2)
+        Do
+            r1 = Half
+            Do
+                r2 = r1 - Half
+                Answer = True
+                Do
+                    If BMatrixR(r2, 1) <= BMatrixR(r2 + Half, 1) Then
+                        Answer = False
+                    Else
+                        Transposition(r2, r2 + Half) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
+                    End If
+                    r2 = r2 - Half
+                Loop While (r2 >= 0 And Answer)
+                r1 = r1 + 1
+            Loop While r1 <= Cize - 1
+            Half = Half \ 2
+        Loop While Half > 0
     End Sub
 
 End Module
@@ -192,6 +244,8 @@ End Module
 'N... - Next (Слідуючий)
 'Answer - Відповідь
 'Value - Значення
+'Number - Номер
+'Half - Половина
 '...Agent... - Посередник
 '...Index... - Індекс
 'B... - Backup (Резервний)
