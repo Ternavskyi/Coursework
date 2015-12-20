@@ -43,7 +43,7 @@ Partial Class Sorting_Settings
         Me.cbSorting_Setting.CheckOnClick = True
         Me.cbSorting_Setting.FormattingEnabled = True
         Me.cbSorting_Setting.Items.AddRange(New Object() {"Bubble", "Selection", "Insertion", "Gnome", "Shell"})
-        Me.cbSorting_Setting.Location = New System.Drawing.Point(79, 79)
+        Me.cbSorting_Setting.Location = New System.Drawing.Point(13, 158)
         Me.cbSorting_Setting.Name = "cbSorting_Setting"
         Me.cbSorting_Setting.Size = New System.Drawing.Size(73, 75)
         Me.cbSorting_Setting.TabIndex = 1
