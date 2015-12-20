@@ -15,7 +15,7 @@
         hhc = General.hgc
         Me.Width = wh
         Me.Height = hh
-        oStart.Location = New Point(whc - whc / 2 - 240, 12)
+        oStart.Location = New Point(wh - wh / 2 - 240, 12)
         oStart.Width = wh / 1.5
         oStart.Height = hh - 24
         bCancel.Width = iInput_Method.Width / 2 - 5

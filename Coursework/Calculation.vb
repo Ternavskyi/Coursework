@@ -2,7 +2,7 @@
 
     'Глобальні змінні на модуль.
     Public MatrixI(,) As Integer, MatrixO(,) As Integer
-    Dim method(5) As Integer
+    Public method(5) As Integer
     Public MatrixR(,) As Integer, BMatrixR(,) As Integer
     Public MatrixD(5, 3) As Single
     Public Cize As Integer
@@ -10,11 +10,6 @@
     Public Sub Sort() 'Почерговий виклик сабів Call ...().
 
         Dim c As Integer
-        Debug.Print("*/*/*/*/*/*/*/*//*//*/")
-        For c = 0 To 4
-            Debug.Print(method(c))
-        Next
-        Debug.Print("*/*/*/*/*/*/*/*//*//*/")
 
         Call Rebuild()
 
@@ -58,6 +53,7 @@
 
             End Select
         Next
+        Call Assembling()
 
     End Sub
 
@@ -123,31 +119,15 @@
         Next
     End Sub
 
-    'Саби які відповідають за вивід даних початкової і кінцевої матриці.
-    '==================================================================================================================
+    Private Sub Assembling()
+        Dim r As Integer, c As Integer 'Змінні які будуть перебирати рядки і стовпці.
 
-    Private Sub Output_Start() 'Вивід матриці MatrixI(n,n) на DataGrid.
-
-        'PMatrixI.RowCount = Cize
-        'PMatrixI.ColumnCount = Cize
-        'For r = 0 To Cize - 1
-        'For c = 0 To Cize - 1
-        'PMatrixI(c, r).Value = MatrixI(r, c)
-        'Next
-        'Next
-
-    End Sub
-
-    Private Sub Output_End() 'Вивід матриці MatrixO...(n,n) на DataGrid.
-
-        'PMatrixO.RowCount = Cize
-        'PMatrixO.ColumnCount = Cize
-        'For r = 0 To Cize - 1
-        'For c = 0 To Cize - 1
-        'PMatrixO(c, r).Value = MatrixO(r, c)
-        'Next
-        'Next
-
+        ReDim MatrixO(Cize, Cize)
+        For r = 0 To Cize - 1
+            For c = 0 To Cize - 1
+                MatrixO(r, c) = MatrixI(BMatrixR(r, 0), c)
+            Next
+        Next
     End Sub
 
     'Функція порівняння двох елементів, та функція перестановки порівнюваних елементів.
