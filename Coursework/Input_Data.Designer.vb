@@ -31,6 +31,9 @@ Partial Class Input_Data
         Me.iView_Generation = New System.Windows.Forms.ComboBox()
         Me.iDimension_matrix = New System.Windows.Forms.NumericUpDown()
         Me.oStart = New System.Windows.Forms.DataGridView()
+        Me.bCancel = New System.Windows.Forms.Button()
+        Me.bOk = New System.Windows.Forms.Button()
+        Me.bSend_data = New System.Windows.Forms.Button()
         CType(Me.iDimension_matrix, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oStart, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -47,13 +50,14 @@ Partial Class Input_Data
         'iInput_Method
         '
         Me.iInput_Method.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.iInput_Method.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.iInput_Method.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.iInput_Method.FormattingEnabled = True
         Me.iInput_Method.Items.AddRange(New Object() {"Open matrix file", "Create matrix"})
         Me.iInput_Method.Location = New System.Drawing.Point(13, 176)
         Me.iInput_Method.Name = "iInput_Method"
         Me.iInput_Method.Size = New System.Drawing.Size(274, 21)
         Me.iInput_Method.TabIndex = 1
+        Me.iInput_Method.Tag = ""
         '
         'Open_matrix_file
         '
@@ -104,11 +108,44 @@ Partial Class Input_Data
         '
         Me.oStart.AllowUserToAddRows = False
         Me.oStart.AllowUserToDeleteRows = False
+        Me.oStart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.oStart.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.oStart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.oStart.Location = New System.Drawing.Point(-17, 98)
+        Me.oStart.ColumnHeadersVisible = False
+        Me.oStart.Location = New System.Drawing.Point(888, 12)
         Me.oStart.Name = "oStart"
-        Me.oStart.Size = New System.Drawing.Size(400, 400)
+        Me.oStart.RowHeadersVisible = False
+        Me.oStart.Size = New System.Drawing.Size(100, 100)
         Me.oStart.TabIndex = 7
+        '
+        'bCancel
+        '
+        Me.bCancel.Location = New System.Drawing.Point(13, 262)
+        Me.bCancel.Name = "bCancel"
+        Me.bCancel.Size = New System.Drawing.Size(130, 23)
+        Me.bCancel.TabIndex = 8
+        Me.bCancel.Text = "Cancel"
+        Me.bCancel.UseVisualStyleBackColor = True
+        '
+        'bOk
+        '
+        Me.bOk.Enabled = False
+        Me.bOk.Location = New System.Drawing.Point(157, 262)
+        Me.bOk.Name = "bOk"
+        Me.bOk.Size = New System.Drawing.Size(130, 23)
+        Me.bOk.TabIndex = 9
+        Me.bOk.Text = "Ok"
+        Me.bOk.UseVisualStyleBackColor = True
+        '
+        'bSend_data
+        '
+        Me.bSend_data.Enabled = False
+        Me.bSend_data.Location = New System.Drawing.Point(13, 292)
+        Me.bSend_data.Name = "bSend_data"
+        Me.bSend_data.Size = New System.Drawing.Size(274, 23)
+        Me.bSend_data.TabIndex = 10
+        Me.bSend_data.Text = "Send data"
+        Me.bSend_data.UseVisualStyleBackColor = True
         '
         'Input_Data
         '
@@ -116,6 +153,9 @@ Partial Class Input_Data
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 772)
+        Me.Controls.Add(Me.bSend_data)
+        Me.Controls.Add(Me.bOk)
+        Me.Controls.Add(Me.bCancel)
         Me.Controls.Add(Me.oStart)
         Me.Controls.Add(Me.iDimension_matrix)
         Me.Controls.Add(Me.iView_Generation)
@@ -143,4 +183,7 @@ Partial Class Input_Data
     Friend WithEvents iView_Generation As ComboBox
     Friend WithEvents iDimension_matrix As NumericUpDown
     Friend WithEvents oStart As DataGridView
+    Friend WithEvents bCancel As Button
+    Friend WithEvents bOk As Button
+    Friend WithEvents bSend_data As Button
 End Class
