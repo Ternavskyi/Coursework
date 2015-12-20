@@ -42,7 +42,7 @@ Partial Class Input_Data
         '
         Me.bClose.Location = New System.Drawing.Point(12, 12)
         Me.bClose.Name = "bClose"
-        Me.bClose.Size = New System.Drawing.Size(75, 23)
+        Me.bClose.Size = New System.Drawing.Size(60, 60)
         Me.bClose.TabIndex = 0
         Me.bClose.Text = "Close"
         Me.bClose.UseVisualStyleBackColor = True
@@ -53,9 +53,9 @@ Partial Class Input_Data
         Me.iInput_Method.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.iInput_Method.FormattingEnabled = True
         Me.iInput_Method.Items.AddRange(New Object() {"Open matrix file", "Create matrix"})
-        Me.iInput_Method.Location = New System.Drawing.Point(13, 176)
+        Me.iInput_Method.Location = New System.Drawing.Point(13, 178)
         Me.iInput_Method.Name = "iInput_Method"
-        Me.iInput_Method.Size = New System.Drawing.Size(274, 21)
+        Me.iInput_Method.Size = New System.Drawing.Size(400, 21)
         Me.iInput_Method.TabIndex = 1
         Me.iInput_Method.Tag = ""
         '
@@ -65,9 +65,9 @@ Partial Class Input_Data
         '
         'bOpen_matrix_file
         '
-        Me.bOpen_matrix_file.Location = New System.Drawing.Point(12, 205)
+        Me.bOpen_matrix_file.Location = New System.Drawing.Point(12, 204)
         Me.bOpen_matrix_file.Name = "bOpen_matrix_file"
-        Me.bOpen_matrix_file.Size = New System.Drawing.Size(75, 22)
+        Me.bOpen_matrix_file.Size = New System.Drawing.Size(80, 22)
         Me.bOpen_matrix_file.TabIndex = 2
         Me.bOpen_matrix_file.Text = "Open"
         Me.bOpen_matrix_file.UseVisualStyleBackColor = True
@@ -75,9 +75,9 @@ Partial Class Input_Data
         '
         'iOpen_matrix_file
         '
-        Me.iOpen_matrix_file.Location = New System.Drawing.Point(86, 206)
+        Me.iOpen_matrix_file.Location = New System.Drawing.Point(90, 205)
         Me.iOpen_matrix_file.Name = "iOpen_matrix_file"
-        Me.iOpen_matrix_file.Size = New System.Drawing.Size(201, 20)
+        Me.iOpen_matrix_file.Size = New System.Drawing.Size(323, 20)
         Me.iOpen_matrix_file.TabIndex = 3
         Me.iOpen_matrix_file.Visible = False
         '
@@ -87,19 +87,19 @@ Partial Class Input_Data
         Me.iView_Generation.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.iView_Generation.FormattingEnabled = True
         Me.iView_Generation.Items.AddRange(New Object() {"Generate randomly matrix", "Generate empty matrix"})
-        Me.iView_Generation.Location = New System.Drawing.Point(12, 234)
+        Me.iView_Generation.Location = New System.Drawing.Point(13, 235)
         Me.iView_Generation.Name = "iView_Generation"
-        Me.iView_Generation.Size = New System.Drawing.Size(275, 21)
+        Me.iView_Generation.Size = New System.Drawing.Size(400, 21)
         Me.iView_Generation.TabIndex = 5
         Me.iView_Generation.Visible = False
         '
         'iDimension_matrix
         '
-        Me.iDimension_matrix.Location = New System.Drawing.Point(13, 206)
+        Me.iDimension_matrix.Location = New System.Drawing.Point(13, 205)
         Me.iDimension_matrix.Maximum = New Decimal(New Integer() {1000000, 0, 0, 0})
         Me.iDimension_matrix.Minimum = New Decimal(New Integer() {2, 0, 0, 0})
         Me.iDimension_matrix.Name = "iDimension_matrix"
-        Me.iDimension_matrix.Size = New System.Drawing.Size(274, 20)
+        Me.iDimension_matrix.Size = New System.Drawing.Size(400, 20)
         Me.iDimension_matrix.TabIndex = 6
         Me.iDimension_matrix.Value = New Decimal(New Integer() {2, 0, 0, 0})
         Me.iDimension_matrix.Visible = False
@@ -122,7 +122,7 @@ Partial Class Input_Data
         '
         Me.bCancel.Location = New System.Drawing.Point(13, 262)
         Me.bCancel.Name = "bCancel"
-        Me.bCancel.Size = New System.Drawing.Size(130, 23)
+        Me.bCancel.Size = New System.Drawing.Size(195, 21)
         Me.bCancel.TabIndex = 8
         Me.bCancel.Text = "Cancel"
         Me.bCancel.UseVisualStyleBackColor = True
@@ -130,9 +130,9 @@ Partial Class Input_Data
         'bOk
         '
         Me.bOk.Enabled = False
-        Me.bOk.Location = New System.Drawing.Point(157, 262)
+        Me.bOk.Location = New System.Drawing.Point(218, 261)
         Me.bOk.Name = "bOk"
-        Me.bOk.Size = New System.Drawing.Size(130, 23)
+        Me.bOk.Size = New System.Drawing.Size(195, 23)
         Me.bOk.TabIndex = 9
         Me.bOk.Text = "Ok"
         Me.bOk.UseVisualStyleBackColor = True
@@ -140,9 +140,9 @@ Partial Class Input_Data
         'bSend_data
         '
         Me.bSend_data.Enabled = False
-        Me.bSend_data.Location = New System.Drawing.Point(13, 292)
+        Me.bSend_data.Location = New System.Drawing.Point(13, 290)
         Me.bSend_data.Name = "bSend_data"
-        Me.bSend_data.Size = New System.Drawing.Size(274, 23)
+        Me.bSend_data.Size = New System.Drawing.Size(400, 21)
         Me.bSend_data.TabIndex = 10
         Me.bSend_data.Text = "Send data"
         Me.bSend_data.UseVisualStyleBackColor = True

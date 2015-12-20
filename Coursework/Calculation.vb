@@ -8,7 +8,6 @@
 
     Public Sub Sort() 'Почерговий виклик сабів Call ...().
 
-        Call Generate()
         Call Rebuild()
         '**************
         Call Backup()
@@ -31,25 +30,17 @@
     'Саби які відповідають за генерування, перебудову і дублювання матриці.
     '==================================================================================================================
 
-    'Private Sub Receiving() 'Отримання MatrixI(n,n) із форми Input_Data.
-    '...
-    'End Sub
+    Public Sub Receiving() 'Отримання MatrixI(n,n) із форми Input_Data.
 
-    Private Sub Generate() 'Генерування матриці MatrixI(n,n).
-
-        Dim Rnd As New Random 'Задання нового рандому.
         Dim r As Integer, c As Integer 'Змінні які будуть перебирати рядки і стовпці.
 
-        Cize = 5 'Тимчасовий костиль аби не робити взаємодію із формою.
+        Cize = Input_Data.Cize
         ReDim MatrixI(Cize, Cize) 'Задання розмірності початкової матриці.
 
-        Debug.Print("**********************************************************************************")
         For r = 0 To Cize - 1 'Перебирання рядків.
             For c = 0 To Cize - 1 'Перебирання стовпців.
-                MatrixI(r, c) = Rnd.Next(-100, 201) 'Запис рандомних чисел в межіх [-100,100] у матрицю.
-                Debug.Write(MatrixI(r, c) & "|")
+                MatrixI(r, c) = Input_Data.MatrixI(r, c)
             Next 'Слідуючий стовпець.
-            Debug.Print("")
         Next 'Слідуючий рядок.
 
     End Sub

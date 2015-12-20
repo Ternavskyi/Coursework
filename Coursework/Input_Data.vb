@@ -1,5 +1,6 @@
 ﻿Public Class Input_Data
 
+    Public MatrixI(,) As Integer
     Public wh As Integer, hh As Integer
     Public Cize As Integer
     Public Index_Creation As Integer = 2, Index_Creation_2 As Integer = 2
@@ -13,8 +14,17 @@
         oStart.Location = New Point(wh - wh / 2 - 240, 12)
         oStart.Width = wh / 1.5
         oStart.Height = hh - 24
+        bCancel.Width = iInput_Method.Width / 2 - 5
+        bCancel.Height = iInput_Method.Height
+        '****************************************************************************************************
+        bOk.Width = iInput_Method.Width / 2 - 5
+        bOk.Height = iInput_Method.Height
+        '****************************************************************************************************
+        bSend_data.Width = iInput_Method.Width
+        bSend_data.Height = iInput_Method.Height
+        '****************************************************************************************************
         bCancel.Location = New Point(iInput_Method.Location.X, iInput_Method.Location.Y + iInput_Method.Height + 10)
-        bOk.Location = New Point(iInput_Method.Location.X + iInput_Method.Width - bOk.Width + 2, iInput_Method.Location.Y + iInput_Method.Height + 10)
+        bOk.Location = New Point(iInput_Method.Location.X + iInput_Method.Width - bOk.Width, iInput_Method.Location.Y + iInput_Method.Height + 10)
         bSend_data.Location = New Point(bCancel.Location.X, bCancel.Location.Y + bCancel.Height + 10)
 
     End Sub
@@ -160,12 +170,17 @@
 
     Private Sub iSend_data_Click(sender As Object, e As EventArgs) Handles bSend_data.Click
 
+        Dim r As Integer, c As Integer 'Змінні які будуть перебирати рядки і стовпці.
 
+        ReDim MatrixI(Cize, Cize) 'Задання розмірності початкової матриці.
 
-    End Sub
-
-    Private Sub Send()
-
+        For r = 0 To Cize - 1 'Перебирання рядків.
+            For c = 0 To Cize - 1 'Перебирання стовпців.
+                MatrixI(r, c) = oStart(c, r).Value
+            Next 'Слідуючий стовпець.
+        Next 'Слідуючий рядок.
+        Call Receiving()
+        Me.Close()
     End Sub
 
 End Class
