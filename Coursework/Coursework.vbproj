@@ -79,10 +79,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculation.vb" />
+    <Compile Include="Chart.Designer.vb">
+      <DependentUpon>Chart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Chart.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="General.Designer.vb">
       <DependentUpon>General.vb</DependentUpon>
     </Compile>
     <Compile Include="General.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.vb">
+      <DependentUpon>Home.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Home.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Input_Data.Designer.vb">
+      <DependentUpon>Input_Data.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Input_Data.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -100,16 +118,52 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Output_Data.Designer.vb">
+      <DependentUpon>Output_Data.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Output_Data.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sorting_Settings.Designer.vb">
+      <DependentUpon>Sorting_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Sorting_Settings.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visualization_Lines.Designer.vb">
+      <DependentUpon>Visualization_Lines.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization_Lines.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visualization_Rectangles.Designer.vb">
+      <DependentUpon>Visualization_Rectangles.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Visualization_Rectangles.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="General.resx">
       <DependentUpon>General.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Input_Data.resx">
+      <DependentUpon>Input_Data.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Output_Data.resx">
+      <DependentUpon>Output_Data.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sorting_Settings.resx">
+      <DependentUpon>Sorting_Settings.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

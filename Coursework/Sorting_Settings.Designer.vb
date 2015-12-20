@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Output_Data
+Partial Class Sorting_Settings
     Inherits System.Windows.Forms.Form
 
     'Форма переопределяет dispose для очистки списка компонентов.
@@ -22,7 +22,7 @@ Partial Class Output_Data
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Output_Data))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sorting_Settings))
         Me.bClose = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -35,18 +35,18 @@ Partial Class Output_Data
         Me.bClose.Text = "Close"
         Me.bClose.UseVisualStyleBackColor = True
         '
-        'Output_Data
+        'Sorting_Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.Aqua
         Me.ClientSize = New System.Drawing.Size(1000, 772)
         Me.Controls.Add(Me.bClose)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Output_Data"
+        Me.Name = "Sorting_Settings"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
-        Me.Text = "Output_Data"
+        Me.Text = "Sorting_Settings"
         Me.ResumeLayout(False)
 
     End Sub

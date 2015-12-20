@@ -1,7 +1,7 @@
-﻿Public Class Output_Data
+﻿Public Class Sorting_Settings
     Public wh As Integer, hh As Integer
 
-    Private Sub Output_Data_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Sorting_Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         wh = General.wg
         hh = General.hg
         Me.Width = wh
