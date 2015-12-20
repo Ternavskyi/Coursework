@@ -4,6 +4,7 @@
     Public wh As Integer, hh As Integer
     Public Cize As Integer
     Public Index_Creation As Integer = 2, Index_Creation_2 As Integer = 2
+    Public Path As String
 
     Private Sub Input_Data_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -92,19 +93,23 @@
                 End If
             Case 2
                 MsgBox("You choose a method for creating matrix", 16, "Error")
+            Case 3
+                Call inputFromFile
         End Select
 
     End Sub
 
     Private Sub bOpen_matrix_file_Click_1(sender As Object, e As EventArgs) Handles bOpen_matrix_file.Click
 
-        Dim Path As String
+
         Open_matrix_file.InitialDirectory = "C:\"
         Open_matrix_file.Title = "Coursework"
         Open_matrix_file.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*"
         Open_matrix_file.FilterIndex = 1
         If Open_matrix_file.ShowDialog = DialogResult.OK Then
+            bOk.Enabled = True
             Path = Open_matrix_file.FileName
+            Index_Creation = 3
         Else
             Path = ""
         End If
@@ -187,6 +192,54 @@
 
     End Sub
 
+    Private Sub inputFromFile()
+        Dim c As Integer = 0, r As Integer = 0
+        Dim fileReader As String, tempString As String
+        Dim charONE As Char
+        Dim flag As Boolean = False
+        fileReader = My.Computer.FileSystem.ReadAllText(Path)
+        Dim custEnum As IEnumerator = fileReader.GetEnumerator()
+        custEnum.Reset()
+        Dim thisChar As Object
+        Cize = 1
+        r = 0
+        c = 0
+        For Each ck As Char In fileReader
+            If ck = Chr(13) Then Cize += 1
+        Next
+        oStart.RowCount = Cize
+        oStart.ColumnCount = Cize
+        While custEnum.MoveNext()
+            thisChar = custEnum.Current()
+            charONE = Convert.ToChar(thisChar)
+
+
+            If (Asc(charONE) = 32) Then
+                oStart(r, c).Value = tempString
+                r = r + 1
+                tempString = ""
+            ElseIf (Asc(charONE) = 13) Then
+                flag = True
+            ElseIf (flag And Asc(charONE) = 10) Then
+                oStart(r, c).Value = tempString
+                c = c + 1
+                tempString = ""
+                r = 0
+            ElseIf (Asc(charONE) <> 32 Or Asc(charONE) <> 13 Or Asc(charONE) <> 10) Then 'Дописати межі на введення тільки цифр
+                tempString = tempString + charONE
+            Else
+                oStart(r, c).Value = "INCORECT"
+            End If
+            ' MsgBox(charONE & " ----  " & Asc(charONE))
+        End While
+        oStart(r, c).Value = tempString
+        bSend_data.Enabled = True
+    End Sub
+
+    Private Function countTheCharacters(fileReader As String, v As String) As Object
+        Throw New NotImplementedException()
+    End Function
+
     Private Sub iSend_data_Click(sender As Object, e As EventArgs) Handles bSend_data.Click
 
         Dim r As Integer, c As Integer 'Змінні які будуть перебирати рядки і стовпці.
@@ -203,7 +256,6 @@
     End Sub
 
 End Class
-
 'Незабути зробити аби стовпці були по ширині тексту в комірці
 'Незабути очищати DataGrid
 'Виправити два баги із запуском форми
