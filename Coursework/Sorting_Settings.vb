@@ -11,6 +11,17 @@
         hhc = General.hgc
         Me.Width = wh
         Me.Height = hh
+        For i = 0 To 4
+            method(i) = 0
+        Next
+    End Sub
+
+    Private Sub bSent_Seting_Click(sender As Object, e As EventArgs) Handles bSent_Seting.Click
+
+        Call Method_Sort()
+        Call Sort()
+        Me.Close()
+
     End Sub
 
     Private Sub bClose_Click(sender As Object, e As EventArgs) Handles bClose.Click
@@ -21,9 +32,6 @@
         Dim custEnum As IEnumerator = cbSorting_Setting.SelectedItems.GetEnumerator
         custEnum.Reset()
         Dim thisChar As Object
-        For i = 0 To 4
-            method(i) = 0
-        Next
         While custEnum.MoveNext()
             thisChar = custEnum.Current()
         End While

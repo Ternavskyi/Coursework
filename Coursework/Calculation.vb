@@ -2,28 +2,62 @@
 
     'Глобальні змінні на модуль.
     Public MatrixI(,) As Integer, MatrixO(,) As Integer
+    Dim method(5) As Integer
     Public MatrixR(,) As Integer, BMatrixR(,) As Integer
     Public MatrixD(5, 3) As Single
     Public Cize As Integer
 
     Public Sub Sort() 'Почерговий виклик сабів Call ...().
 
+        Dim c As Integer
+        Debug.Print("*/*/*/*/*/*/*/*//*//*/")
+        For c = 0 To 4
+            Debug.Print(method(c))
+        Next
+        Debug.Print("*/*/*/*/*/*/*/*//*//*/")
+
         Call Rebuild()
-        '**************
-        Call Backup()
-        Call Bubble()
-        '**************
-        Call Backup()
-        Call Selection()
-        '**************
-        Call Backup()
-        Call Insertion()
-        '**************
-        Call Backup()
-        Call Gnome()
-        '**************
-        Call Backup()
-        Call Shell()
+
+        For c = 0 To 4
+
+            Select Case c
+                Case 0
+
+                    If method(c) = 1 Then
+                        Call Backup()
+                        Call Bubble()
+                    End If
+
+                Case 1
+
+                    If method(c) = 1 Then
+                        Call Backup()
+                        Call Selection()
+                    End If
+
+                Case 2
+
+                    If method(c) = 1 Then
+                        Call Backup()
+                        Call Insertion()
+                    End If
+
+                Case 3
+
+                    If method(c) = 1 Then
+                        Call Backup()
+                        Call Gnome()
+                    End If
+
+                Case 4
+
+                    If method(c) = 1 Then
+                        Call Backup()
+                        Call Shell()
+                    End If
+
+            End Select
+        Next
 
     End Sub
 
@@ -52,7 +86,7 @@
 
         ReDim MatrixR(Cize, 2) 'Задання розмірності перебудованої матриці.
         Min = MatrixI(0, 0) 'Припущення що в першому рядку мінімальний елемент знаходиться у позиції (0,0).
-        Debug.Print("**********************************************************************************")
+        Debug.Print("Rebuild**********************************************************************************")
 
         For r = 0 To Cize - 1 'Перебирання рядків.
             For c = 0 To Cize - 1 'Перебирання стовпців.
@@ -80,6 +114,13 @@
             Next 'Слідуючий стовпець.
         Next 'Слідуючий рядок.
 
+    End Sub
+
+    Public Sub Method_Sort()
+        Dim c As Integer
+        For c = 0 To 4
+            method(c) = Sorting_Settings.method(c)
+        Next
     End Sub
 
     'Саби які відповідають за вивід даних початкової і кінцевої матриці.
@@ -168,7 +209,7 @@
         Dim time As New Stopwatch() 'Оголошення таймера.
 
         MatrixD(0, 0) = 0 'Індекс методу сортування "0"
-        Debug.Print("**********************************************************************************")
+        Debug.Print("Bubble**********************************************************************************")
         time.Start() 'Старт таймера.
 
         Do 'Заходимо в цикл.
@@ -202,7 +243,7 @@
         Dim time As New Stopwatch() 'Оголошення таймера.
 
         MatrixD(1, 0) = 1 'Індекс методу сортування "1"
-        Debug.Print("**********************************************************************************")
+        Debug.Print("Selection**********************************************************************************")
         time.Start() 'Старт таймера.
 
         For r1 = 0 To Cize - 2 'Перебирання рядків починаючи з нульового.
@@ -236,7 +277,7 @@
         Dim time As New Stopwatch() 'Оголошення таймера.
 
         MatrixD(2, 0) = 2 'Індекс методу сортування "2"
-        Debug.Print("**********************************************************************************")
+        Debug.Print("Insertion**********************************************************************************")
         time.Start() 'Старт таймера.
 
         For r1 = 1 To Cize - 1 'Перебирання рядків починаючи з першого.
@@ -275,7 +316,7 @@
         Dim time As New Stopwatch() 'Оголошення таймера.
 
         MatrixD(3, 0) = 3 'Індекс методу сортування "3"
-        Debug.Print("**********************************************************************************")
+        Debug.Print("Gnome**********************************************************************************")
         time.Start() 'Старт таймера.
         r1 = 1 'Присвоєння індекса рядка.
         r2 = 2 'Присвоєння індекса рядка.
@@ -316,7 +357,7 @@
         Dim time As New Stopwatch() 'Оголошення таймера.
 
         MatrixD(4, 0) = 4 'Індекс методу сортування "4"
-        Debug.Print("**********************************************************************************")
+        Debug.Print("Shell**********************************************************************************")
         time.Start() 'Старт таймера.
         Half = Cize \ 2 'Знаходження індексу середнього рядка масиву BMatrixR(,).
 

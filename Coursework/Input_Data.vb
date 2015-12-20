@@ -223,8 +223,6 @@
         While custEnum.MoveNext()
             thisChar = custEnum.Current()
             charONE = Convert.ToChar(thisChar)
-
-
             If (Asc(charONE) = 32) Then
                 oStart(r, c).Value = tempString
                 r = r + 1

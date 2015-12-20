@@ -25,6 +25,7 @@ Partial Class Sorting_Settings
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Sorting_Settings))
         Me.bClose = New System.Windows.Forms.Button()
         Me.cbSorting_Setting = New System.Windows.Forms.CheckedListBox()
+        Me.bSent_Seting = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'bClose
@@ -48,12 +49,22 @@ Partial Class Sorting_Settings
         Me.cbSorting_Setting.Size = New System.Drawing.Size(73, 75)
         Me.cbSorting_Setting.TabIndex = 1
         '
+        'bSent_Seting
+        '
+        Me.bSent_Seting.Location = New System.Drawing.Point(13, 240)
+        Me.bSent_Seting.Name = "bSent_Seting"
+        Me.bSent_Seting.Size = New System.Drawing.Size(75, 23)
+        Me.bSent_Seting.TabIndex = 2
+        Me.bSent_Seting.Text = "Sent Seting"
+        Me.bSent_Seting.UseVisualStyleBackColor = True
+        '
         'Sorting_Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aqua
         Me.ClientSize = New System.Drawing.Size(1000, 772)
+        Me.Controls.Add(Me.bSent_Seting)
         Me.Controls.Add(Me.cbSorting_Setting)
         Me.Controls.Add(Me.bClose)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -67,4 +78,5 @@ Partial Class Sorting_Settings
 
     Friend WithEvents bClose As Button
     Friend WithEvents cbSorting_Setting As CheckedListBox
+    Friend WithEvents bSent_Seting As Button
 End Class
