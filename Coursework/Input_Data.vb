@@ -2,6 +2,7 @@
 
     Public MatrixI(,) As Integer
     Public wh As Integer, hh As Integer
+    Public whc As Integer, hhc As Integer
     Public Cize As Integer
     Public Index_Creation As Integer = 2, Index_Creation_2 As Integer = 2
 
@@ -9,9 +10,11 @@
 
         wh = General.wg
         hh = General.hg
+        whc = General.wgc
+        hhc = General.hgc
         Me.Width = wh
         Me.Height = hh
-        oStart.Location = New Point(wh - wh / 2 - 240, 12)
+        oStart.Location = New Point(whc - whc / 2 - 240, 12)
         oStart.Width = wh / 1.5
         oStart.Height = hh - 24
         bCancel.Width = iInput_Method.Width / 2 - 5
@@ -22,8 +25,6 @@
         '****************************************************************************************************
         bSend_data.Width = iInput_Method.Width
         bSend_data.Height = iInput_Method.Height
-        '****************************************************************************************************
-
         '****************************************************************************************************
         bCancel.Location = New Point(iInput_Method.Location.X, iInput_Method.Location.Y + iInput_Method.Height + 10)
         bOk.Location = New Point(iInput_Method.Location.X + iInput_Method.Width - bOk.Width, iInput_Method.Location.Y + iInput_Method.Height + 10)
@@ -121,10 +122,15 @@
         iView_Generation.SelectedIndex = -1
         bOpen_matrix_file.Visible = True
         iOpen_matrix_file.Visible = True
+        '****************************************************************************************************
+        bOpen_matrix_file.Width = iInput_Method.Width / 4
+        '****************************************************************************************************
+        iOpen_matrix_file.Width = (iInput_Method.Width / 4) * 3
+        '****************************************************************************************************
         bOpen_matrix_file.Location = New Point(iInput_Method.Location.X, iInput_Method.Location.Y + iInput_Method.Height + 10)
-        iOpen_matrix_file.Location = New Point(iInput_Method.Location.X + bOpen_matrix_file.Width - 1, iInput_Method.Location.Y + iInput_Method.Height + 11)
+        iOpen_matrix_file.Location = New Point(iInput_Method.Location.X + bOpen_matrix_file.Width, iInput_Method.Location.Y + iInput_Method.Height + 11)
         bCancel.Location = New Point(bOpen_matrix_file.Location.X, bOpen_matrix_file.Location.Y + bOpen_matrix_file.Height + 10)
-        bOk.Location = New Point(bOpen_matrix_file.Location.X + iInput_Method.Width - bOk.Width + 2, bOpen_matrix_file.Location.Y + bOpen_matrix_file.Height + 10)
+        bOk.Location = New Point(bOpen_matrix_file.Location.X + iInput_Method.Width - bOk.Width, bOpen_matrix_file.Location.Y + bOpen_matrix_file.Height + 10)
         bSend_data.Location = New Point(bCancel.Location.X, bCancel.Location.Y + bCancel.Height + 10)
         bOk.Enabled = False
         oStart.Rows.Clear()
@@ -139,6 +145,11 @@
         bOpen_matrix_file.Visible = False
         iOpen_matrix_file.Visible = False
         iOpen_matrix_file.Text = ""
+        '****************************************************************************************************
+        iDimension_matrix.Width = iInput_Method.Width
+        '****************************************************************************************************
+        iView_Generation.Width = iInput_Method.Width
+        '****************************************************************************************************
         iDimension_matrix.Location = New Point(iInput_Method.Location.X, iInput_Method.Location.Y + iInput_Method.Height + 10)
         iView_Generation.Location = New Point(iInput_Method.Location.X, iDimension_matrix.Location.Y + iDimension_matrix.Height + 10)
         bCancel.Location = New Point(iView_Generation.Location.X, iView_Generation.Location.Y + iView_Generation.Height + 10)
