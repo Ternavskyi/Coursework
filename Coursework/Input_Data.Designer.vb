@@ -59,10 +59,6 @@ Partial Class Input_Data
         Me.iInput_Method.TabIndex = 1
         Me.iInput_Method.Tag = ""
         '
-        'Open_matrix_file
-        '
-        Me.Open_matrix_file.FileName = "Open matrix file"
-        '
         'bOpen_matrix_file
         '
         Me.bOpen_matrix_file.Location = New System.Drawing.Point(12, 204)

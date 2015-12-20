@@ -23,6 +23,8 @@
         bSend_data.Width = iInput_Method.Width
         bSend_data.Height = iInput_Method.Height
         '****************************************************************************************************
+
+        '****************************************************************************************************
         bCancel.Location = New Point(iInput_Method.Location.X, iInput_Method.Location.Y + iInput_Method.Height + 10)
         bOk.Location = New Point(iInput_Method.Location.X + iInput_Method.Width - bOk.Width, iInput_Method.Location.Y + iInput_Method.Height + 10)
         bSend_data.Location = New Point(bCancel.Location.X, bCancel.Location.Y + bCancel.Height + 10)
@@ -91,6 +93,23 @@
             Case 2
                 MsgBox("You choose a method for creating matrix", 16, "Error")
         End Select
+
+    End Sub
+
+    Private Sub bOpen_matrix_file_Click_1(sender As Object, e As EventArgs) Handles bOpen_matrix_file.Click
+
+        Dim Path As String
+        Open_matrix_file.InitialDirectory = "C:\"
+        Open_matrix_file.Title = "Coursework"
+        Open_matrix_file.Filter = "Text Files (*.txt)|*.txt|All files (*.*)|*.*"
+        Open_matrix_file.FilterIndex = 1
+        If Open_matrix_file.ShowDialog = DialogResult.OK Then
+            Path = Open_matrix_file.FileName
+        Else
+            Path = ""
+        End If
+        Debug.Print(Path)
+        iOpen_matrix_file.Text = Path
 
     End Sub
 
