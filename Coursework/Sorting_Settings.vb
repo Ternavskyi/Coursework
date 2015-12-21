@@ -18,9 +18,20 @@
 
     Private Sub bSent_Seting_Click(sender As Object, e As EventArgs) Handles bSent_Seting.Click
 
+        Calculation.isVisual = isVisualization.Checked
+        Calculation.sleepTime = CInt(sleepTime.Text)
+
+
+        If Calculation.isVisual Then Visualization_Rectangles.Show()
+
         Call Method_Sort()
         Call Sort()
-        Me.Close()
+        'Me.Close()
+
+
+    End Sub
+
+    Private Sub isVisualization_CheckedChanged(sender As Object, e As EventArgs) Handles isVisualization.CheckedChanged
 
     End Sub
 

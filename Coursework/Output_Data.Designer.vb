@@ -22,6 +22,15 @@ Partial Class Output_Data
     'Не изменяйте ее в редакторе исходного кода.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Series2 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
+        Dim ChartArea2 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend2 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series3 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title2 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Output_Data))
         Me.bClose = New System.Windows.Forms.Button()
         Me.oStart = New System.Windows.Forms.DataGridView()
@@ -43,8 +52,13 @@ Partial Class Output_Data
         Me.oNGnome = New System.Windows.Forms.Label()
         Me.oTShell = New System.Windows.Forms.Label()
         Me.oNShell = New System.Windows.Forms.Label()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.oStart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.oEnd, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'bClose
@@ -87,7 +101,7 @@ Partial Class Output_Data
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 149)
+        Me.Label1.Location = New System.Drawing.Point(30, 77)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 10
@@ -96,7 +110,7 @@ Partial Class Output_Data
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 173)
+        Me.Label2.Location = New System.Drawing.Point(30, 101)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 13)
         Me.Label2.TabIndex = 11
@@ -105,7 +119,7 @@ Partial Class Output_Data
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(10, 197)
+        Me.Label3.Location = New System.Drawing.Point(30, 125)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 12
@@ -114,7 +128,7 @@ Partial Class Output_Data
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 220)
+        Me.Label4.Location = New System.Drawing.Point(30, 148)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 13)
         Me.Label4.TabIndex = 13
@@ -123,7 +137,7 @@ Partial Class Output_Data
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 243)
+        Me.Label5.Location = New System.Drawing.Point(30, 171)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(30, 13)
         Me.Label5.TabIndex = 14
@@ -132,7 +146,7 @@ Partial Class Output_Data
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(110, 120)
+        Me.Label6.Location = New System.Drawing.Point(130, 48)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(15, 13)
         Me.Label6.TabIndex = 15
@@ -141,7 +155,7 @@ Partial Class Output_Data
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(201, 120)
+        Me.Label7.Location = New System.Drawing.Point(221, 48)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 13)
         Me.Label7.TabIndex = 16
@@ -150,7 +164,7 @@ Partial Class Output_Data
         'oTBubble
         '
         Me.oTBubble.AutoSize = True
-        Me.oTBubble.Location = New System.Drawing.Point(201, 149)
+        Me.oTBubble.Location = New System.Drawing.Point(221, 77)
         Me.oTBubble.Name = "oTBubble"
         Me.oTBubble.Size = New System.Drawing.Size(0, 13)
         Me.oTBubble.TabIndex = 18
@@ -158,7 +172,7 @@ Partial Class Output_Data
         'oNBubble
         '
         Me.oNBubble.AutoSize = True
-        Me.oNBubble.Location = New System.Drawing.Point(110, 149)
+        Me.oNBubble.Location = New System.Drawing.Point(130, 77)
         Me.oNBubble.Name = "oNBubble"
         Me.oNBubble.Size = New System.Drawing.Size(0, 13)
         Me.oNBubble.TabIndex = 17
@@ -166,7 +180,7 @@ Partial Class Output_Data
         'oTSelection
         '
         Me.oTSelection.AutoSize = True
-        Me.oTSelection.Location = New System.Drawing.Point(201, 173)
+        Me.oTSelection.Location = New System.Drawing.Point(221, 101)
         Me.oTSelection.Name = "oTSelection"
         Me.oTSelection.Size = New System.Drawing.Size(0, 13)
         Me.oTSelection.TabIndex = 20
@@ -174,7 +188,7 @@ Partial Class Output_Data
         'oNSelection
         '
         Me.oNSelection.AutoSize = True
-        Me.oNSelection.Location = New System.Drawing.Point(110, 173)
+        Me.oNSelection.Location = New System.Drawing.Point(130, 101)
         Me.oNSelection.Name = "oNSelection"
         Me.oNSelection.Size = New System.Drawing.Size(0, 13)
         Me.oNSelection.TabIndex = 19
@@ -182,7 +196,7 @@ Partial Class Output_Data
         'oTInsertion
         '
         Me.oTInsertion.AutoSize = True
-        Me.oTInsertion.Location = New System.Drawing.Point(201, 197)
+        Me.oTInsertion.Location = New System.Drawing.Point(221, 125)
         Me.oTInsertion.Name = "oTInsertion"
         Me.oTInsertion.Size = New System.Drawing.Size(0, 13)
         Me.oTInsertion.TabIndex = 22
@@ -190,7 +204,7 @@ Partial Class Output_Data
         'oNInsertion
         '
         Me.oNInsertion.AutoSize = True
-        Me.oNInsertion.Location = New System.Drawing.Point(110, 197)
+        Me.oNInsertion.Location = New System.Drawing.Point(130, 125)
         Me.oNInsertion.Name = "oNInsertion"
         Me.oNInsertion.Size = New System.Drawing.Size(0, 13)
         Me.oNInsertion.TabIndex = 21
@@ -198,7 +212,7 @@ Partial Class Output_Data
         'oTGnome
         '
         Me.oTGnome.AutoSize = True
-        Me.oTGnome.Location = New System.Drawing.Point(201, 220)
+        Me.oTGnome.Location = New System.Drawing.Point(221, 148)
         Me.oTGnome.Name = "oTGnome"
         Me.oTGnome.Size = New System.Drawing.Size(0, 13)
         Me.oTGnome.TabIndex = 24
@@ -206,7 +220,7 @@ Partial Class Output_Data
         'oNGnome
         '
         Me.oNGnome.AutoSize = True
-        Me.oNGnome.Location = New System.Drawing.Point(110, 220)
+        Me.oNGnome.Location = New System.Drawing.Point(130, 148)
         Me.oNGnome.Name = "oNGnome"
         Me.oNGnome.Size = New System.Drawing.Size(0, 13)
         Me.oNGnome.TabIndex = 23
@@ -214,7 +228,7 @@ Partial Class Output_Data
         'oTShell
         '
         Me.oTShell.AutoSize = True
-        Me.oTShell.Location = New System.Drawing.Point(201, 243)
+        Me.oTShell.Location = New System.Drawing.Point(221, 171)
         Me.oTShell.Name = "oTShell"
         Me.oTShell.Size = New System.Drawing.Size(0, 13)
         Me.oTShell.TabIndex = 26
@@ -222,10 +236,67 @@ Partial Class Output_Data
         'oNShell
         '
         Me.oNShell.AutoSize = True
-        Me.oNShell.Location = New System.Drawing.Point(110, 243)
+        Me.oNShell.Location = New System.Drawing.Point(130, 171)
         Me.oNShell.Name = "oNShell"
         Me.oNShell.Size = New System.Drawing.Size(0, 13)
         Me.oNShell.TabIndex = 25
+        '
+        'Chart1
+        '
+        Me.Chart1.BackColor = System.Drawing.Color.Transparent
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(13, 202)
+        Me.Chart1.Name = "Chart1"
+        Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
+        Series1.ChartArea = "ChartArea1"
+        Series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Series2.ChartArea = "ChartArea1"
+        Series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series2.Legend = "Legend1"
+        Series2.Name = "Series2"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Series.Add(Series2)
+        Me.Chart1.Size = New System.Drawing.Size(379, 211)
+        Me.Chart1.TabIndex = 27
+        Me.Chart1.Text = "Chart1"
+        Title1.Name = "Перестановки"
+        Title1.Text = "Кількість перестановок"
+        Me.Chart1.Titles.Add(Title1)
+        '
+        'Chart2
+        '
+        Me.Chart2.BackColor = System.Drawing.Color.Transparent
+        ChartArea2.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea2)
+        Legend2.Name = "Legend1"
+        Me.Chart2.Legends.Add(Legend2)
+        Me.Chart2.Location = New System.Drawing.Point(13, 430)
+        Me.Chart2.Name = "Chart2"
+        Series3.ChartArea = "ChartArea1"
+        Series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie
+        Series3.Legend = "Legend1"
+        Series3.Name = "Series1"
+        Me.Chart2.Series.Add(Series3)
+        Me.Chart2.Size = New System.Drawing.Size(379, 211)
+        Me.Chart2.TabIndex = 28
+        Me.Chart2.Text = "Chart2"
+        Title2.Name = "Title1"
+        Title2.Text = "Час роботи"
+        Me.Chart2.Titles.Add(Title2)
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(24, 737)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(183, 23)
+        Me.Button1.TabIndex = 29
+        Me.Button1.Text = "Експортувати дані"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Output_Data
         '
@@ -233,6 +304,9 @@ Partial Class Output_Data
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1000, 772)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.Chart2)
+        Me.Controls.Add(Me.Chart1)
         Me.Controls.Add(Me.oTShell)
         Me.Controls.Add(Me.oNShell)
         Me.Controls.Add(Me.oTGnome)
@@ -260,6 +334,8 @@ Partial Class Output_Data
         Me.Text = "Output_Data"
         CType(Me.oStart, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.oEnd, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -285,4 +361,7 @@ Partial Class Output_Data
     Friend WithEvents oNGnome As Label
     Friend WithEvents oTShell As Label
     Friend WithEvents oNShell As Label
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents Button1 As Button
 End Class

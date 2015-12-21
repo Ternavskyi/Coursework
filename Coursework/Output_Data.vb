@@ -20,6 +20,26 @@
         Call Output_Start()
         Call Output_End()
         Call Data_Sort()
+        If Calculation.MatrixD(0, 0) = 1 Then
+            Chart1.Series("Series1").Points.AddXY("BUBLE", Calculation.MatrixD(0, 1))
+            Chart2.Series("Series1").Points.AddXY("BUBLE", Calculation.MatrixD(0, 2))
+        End If
+        If Calculation.MatrixD(1, 0) = 1 Then
+            Chart1.Series("Series1").Points.AddXY("Selection", Calculation.MatrixD(1, 1))
+            Chart2.Series("Series1").Points.AddXY("Selection", Calculation.MatrixD(1, 2))
+        End If
+        If Calculation.MatrixD(2, 0) = 1 Then
+            Chart1.Series("Series1").Points.AddXY("Insertion", Calculation.MatrixD(2, 1))
+            Chart2.Series("Series1").Points.AddXY("Insertion", Calculation.MatrixD(2, 2))
+        End If
+        If Calculation.MatrixD(3, 0) = 1 Then
+            Chart1.Series("Series1").Points.AddXY("Gnome", Calculation.MatrixD(3, 1))
+            Chart2.Series("Series1").Points.AddXY("Gnome", Calculation.MatrixD(3, 2))
+        End If
+        If Calculation.MatrixD(4, 0) = 1 Then
+            Chart1.Series("Series1").Points.AddXY("Shell", Calculation.MatrixD(4, 1))
+            Chart2.Series("Series1").Points.AddXY("Shell", Calculation.MatrixD(4, 2))
+        End If
     End Sub
 
     Private Sub bClose_Click(sender As Object, e As EventArgs) Handles bClose.Click
@@ -38,6 +58,49 @@
             Next
         Next
 
+    End Sub
+
+    Private Sub Chart1_Click(sender As Object, e As EventArgs) Handles Chart1.Click
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim path As String
+        Dim saveFileDialog1 As New SaveFileDialog()
+        saveFileDialog1.Filter = "excel|*.xls|NotPad|*.txt|CSV|*.csv"
+        saveFileDialog1.Title = "Save an File"
+        saveFileDialog1.ShowDialog()
+        path = saveFileDialog1.FileName
+        Dim StrExport As String = ""
+
+        StrExport &= Environment.NewLine
+        For Each R As DataGridViewRow In oEnd.Rows
+            For Each C As DataGridViewCell In R.Cells
+                If Not C.Value Is Nothing Then
+                    StrExport &= Chr(09) & C.Value.ToString
+                Else
+                    StrExport &= Chr(09)
+                End If
+            Next
+            StrExport = StrExport.Substring(0, StrExport.Length - 1)
+            StrExport &= Environment.NewLine
+        Next
+        If saveFileDialog1.FileName <> "" Then
+            Select Case saveFileDialog1.FilterIndex
+                Case 1
+                    Dim tw As IO.TextWriter = New IO.StreamWriter(path)
+                    tw.Write(StrExport)
+                    tw.Close()
+                Case 2
+                    Dim tw As IO.TextWriter = New IO.StreamWriter(path)
+                    tw.Write(StrExport)
+                    tw.Close()
+                Case 3
+                    Dim tw As IO.TextWriter = New IO.StreamWriter(path)
+                    tw.Write(StrExport)
+                    tw.Close()
+            End Select
+        End If
     End Sub
 
     Private Sub Output_End() 'Вивід матриці MatrixO...(n,n) на DataGrid.

@@ -6,6 +6,11 @@
     Public MatrixR(,) As Integer, BMatrixR(,) As Integer
     Public MatrixD(5, 3) As Single
     Public Cize As Integer
+    Public isVisual As Boolean
+    Public sleepTime As Integer
+    Public workMethod As Integer
+    Public number As Integer
+    Public time As New Stopwatch() 'Оголошення таймера.
 
     Public Sub Sort() 'Почерговий виклик сабів Call ...().
 
@@ -13,42 +18,47 @@
 
         Call Rebuild()
 
-        For c = 0 To 4
+        For workMethod = 0 To 4
 
-            Select Case c
+            Select Case workMethod
                 Case 0
 
-                    If method(c) = 1 Then
+                    If method(workMethod) = 1 Then
                         Call Backup()
                         Call Bubble()
+                        MatrixD(0, 0) = 1
                     End If
 
                 Case 1
 
-                    If method(c) = 1 Then
+                    If method(workMethod) = 1 Then
                         Call Backup()
                         Call Selection()
+                        MatrixD(1, 0) = 1
                     End If
 
                 Case 2
 
-                    If method(c) = 1 Then
+                    If method(workMethod) = 1 Then
                         Call Backup()
                         Call Insertion()
+                        MatrixD(2, 0) = 1
                     End If
 
                 Case 3
 
-                    If method(c) = 1 Then
+                    If method(workMethod) = 1 Then
                         Call Backup()
                         Call Gnome()
+                        MatrixD(3, 0) = 1
                     End If
 
                 Case 4
 
-                    If method(c) = 1 Then
+                    If method(workMethod) = 1 Then
                         Call Backup()
                         Call Shell()
+                        MatrixD(4, 0) = 1
                     End If
 
             End Select
@@ -144,6 +154,7 @@
 
             If P > N Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
                 Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
+                If Calculation.isVisual Then Visualization_Rectangles.Creat()
             End If 'Закінчення перевірки.
             ' провірка чи потрібна візуалізація з форми.
             ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
@@ -154,6 +165,7 @@
 
             If SpecificAgent > P Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
                 Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
+                If Calculation.isVisual Then Visualization_Rectangles.Creat()
             End If 'Закінчення перевірки.
             ' провірка чи потрібна візуалізація з форми.
             ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
@@ -185,19 +197,19 @@
         Dim r As Integer 'Змінна яка буде перебирати рядки.
         Dim check As Integer 'check (перевірка) зміна для перевірки чи проводився захід у функцію Transposition за весь цикл проходу по всіх рядках матриці BMatrixR.
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
-        Dim number As Integer 'Кількість перестановок.
-        Dim time As New Stopwatch() 'Оголошення таймера.
+
 
         MatrixD(0, 0) = 0 'Індекс методу сортування "0"
         Debug.Print("Bubble**********************************************************************************")
+        time.Reset()
         time.Start() 'Старт таймера.
-
+        number = 0 'Кількість перестановок.
         Do 'Заходимо в цикл.
             check = 0 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл не заходив.
             For r = 0 To Cize - 2 'Перебирання рядків.
                 If Comparison(r, r + 1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                     Transposition(r, r + 1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
-                    number = number + 1 'Кількість перестановок
+                    number = number + 1 'Кількість 
                     check = 1 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл заходив.
                 End If 'Закінчення перевірки.
             Next 'Слідуючий рядок.
@@ -218,14 +230,14 @@
 
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
         Dim rMin As Integer 'Змінна яка запамятовує мінімальниий елемент у стовпці матриці.
-        Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
-        Dim number As Integer 'Кількість перестановок.
-        Dim time As New Stopwatch() 'Оголошення таймера.
+        Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння
+
 
         MatrixD(1, 0) = 1 'Індекс методу сортування "1"
         Debug.Print("Selection**********************************************************************************")
+        time.Reset()
         time.Start() 'Старт таймера.
-
+        number = 0 'Кількість перестановок.
         For r1 = 0 To Cize - 2 'Перебирання рядків починаючи з нульового.
             rMin = r1 'Припускаємо що мінімальний елемент знаходиться на r1 рядку
             For r2 = r1 + 1 To Cize - 1 'Перебирання рядків починаючи з першого.
@@ -253,13 +265,13 @@
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
         Dim NumberAgent As Integer 'Змінна яка тимчасово запамятовує індекс рядка.
         Dim SpecificAgent As Integer 'Змінна яка тимчасово запамятовує значення комірки.
-        Dim number As Integer 'Кількість перестановок.
-        Dim time As New Stopwatch() 'Оголошення таймера.
+
 
         MatrixD(2, 0) = 2 'Індекс методу сортування "2"
         Debug.Print("Insertion**********************************************************************************")
-        time.Start() 'Старт таймера.
-
+        time.Reset()
+        time.Start() 'Старт таймера..
+        number = 0 'Кількість перестановок.
         For r1 = 1 To Cize - 1 'Перебирання рядків починаючи з першого.
             NumberAgent = BMatrixR(r1, 0) 'Запамятовуємо значення комірки BMatrixR(r1, 0) оскільки індекс за один прохід може стати не актуальним.
             SpecificAgent = BMatrixR(r1, 1) 'Запамятовуємо значення комірки BMatrixR(r1, 1) оскільки індекс за один прохід може стати не актуальним.
@@ -292,15 +304,15 @@
 
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
-        Dim number As Integer 'Кількість перестановок.
-        Dim time As New Stopwatch() 'Оголошення таймера.
+
 
         MatrixD(3, 0) = 3 'Індекс методу сортування "3"
         Debug.Print("Gnome**********************************************************************************")
+        time.Reset()
         time.Start() 'Старт таймера.
         r1 = 1 'Присвоєння індекса рядка.
         r2 = 2 'Присвоєння індекса рядка.
-
+        number = 0 'Кількість перестановок.
         Do While r1 < Cize 'Цикл виконується доти, доки не пройде всі рядки тобто r1 < Cize.
             If Comparison(r1 - 1, r1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                 Transposition(r1 - 1, r1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
@@ -333,14 +345,14 @@
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
         Dim Half As Integer 'Змінна яка приймає індекс середнього рядка масиву BMatrixR(,).
         Dim Answer As Boolean 'Змміння яка приймає значення True або False
-        Dim number As Integer 'Кількість перестановок.
-        Dim time As New Stopwatch() 'Оголошення таймера.
+
 
         MatrixD(4, 0) = 4 'Індекс методу сортування "4"
         Debug.Print("Shell**********************************************************************************")
+        time.Reset()
         time.Start() 'Старт таймера.
         Half = Cize \ 2 'Знаходження індексу середнього рядка масиву BMatrixR(,).
-
+        number = 0 'Кількість перестановок.
         Do 'Заходимо в цикл.
             r1 = Half 'Присвоюємо значенню r1 індекса рядка значення індекса середнього рядка.
             Do 'Заходимо в цикл.
