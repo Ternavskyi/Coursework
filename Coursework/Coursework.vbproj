@@ -80,12 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Calculation.vb" />
-    <Compile Include="Chart.Designer.vb">
-      <DependentUpon>Chart.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Chart.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="General.Designer.vb">
       <DependentUpon>General.vb</DependentUpon>
     </Compile>

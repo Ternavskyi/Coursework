@@ -13,3 +13,4 @@ D:\Coursework\Coursework\obj\Debug\Coursework.Home.resources
 D:\Coursework\Coursework\obj\Debug\Coursework.Input_Data.resources
 D:\Coursework\Coursework\obj\Debug\Coursework.Output_Data.resources
 D:\Coursework\Coursework\obj\Debug\Coursework.Sorting_Settings.resources
+D:\Coursework\Coursework\obj\Debug\Coursework.Visualization_Rectangles.resources

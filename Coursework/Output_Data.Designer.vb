@@ -105,12 +105,8 @@ Partial Class Output_Data
         'Label1
         '
         Me.Label1.AutoSize = True
-<<<<<<< HEAD
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(10, 149)
-=======
-        Me.Label1.Location = New System.Drawing.Point(30, 77)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label1.Location = New System.Drawing.Point(51, 89)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 10
@@ -119,12 +115,8 @@ Partial Class Output_Data
         'Label2
         '
         Me.Label2.AutoSize = True
-<<<<<<< HEAD
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(10, 173)
-=======
-        Me.Label2.Location = New System.Drawing.Point(30, 101)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label2.Location = New System.Drawing.Point(51, 113)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 13)
         Me.Label2.TabIndex = 11
@@ -133,12 +125,8 @@ Partial Class Output_Data
         'Label3
         '
         Me.Label3.AutoSize = True
-<<<<<<< HEAD
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(10, 197)
-=======
-        Me.Label3.Location = New System.Drawing.Point(30, 125)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label3.Location = New System.Drawing.Point(51, 137)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
         Me.Label3.TabIndex = 12
@@ -147,12 +135,8 @@ Partial Class Output_Data
         'Label4
         '
         Me.Label4.AutoSize = True
-<<<<<<< HEAD
         Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Location = New System.Drawing.Point(10, 220)
-=======
-        Me.Label4.Location = New System.Drawing.Point(30, 148)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label4.Location = New System.Drawing.Point(51, 160)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 13)
         Me.Label4.TabIndex = 13
@@ -161,12 +145,8 @@ Partial Class Output_Data
         'Label5
         '
         Me.Label5.AutoSize = True
-<<<<<<< HEAD
         Me.Label5.BackColor = System.Drawing.Color.Transparent
-        Me.Label5.Location = New System.Drawing.Point(10, 243)
-=======
-        Me.Label5.Location = New System.Drawing.Point(30, 171)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label5.Location = New System.Drawing.Point(51, 183)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(30, 13)
         Me.Label5.TabIndex = 14
@@ -175,12 +155,8 @@ Partial Class Output_Data
         'Label6
         '
         Me.Label6.AutoSize = True
-<<<<<<< HEAD
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(110, 120)
-=======
-        Me.Label6.Location = New System.Drawing.Point(130, 48)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label6.Location = New System.Drawing.Point(207, 71)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(15, 13)
         Me.Label6.TabIndex = 15
@@ -189,12 +165,8 @@ Partial Class Output_Data
         'Label7
         '
         Me.Label7.AutoSize = True
-<<<<<<< HEAD
         Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Location = New System.Drawing.Point(201, 120)
-=======
-        Me.Label7.Location = New System.Drawing.Point(221, 48)
->>>>>>> 20f35f8fd16da725530454964502b97d2e50cd4f
+        Me.Label7.Location = New System.Drawing.Point(108, 71)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 13)
         Me.Label7.TabIndex = 16
@@ -203,7 +175,7 @@ Partial Class Output_Data
         'oTBubble
         '
         Me.oTBubble.AutoSize = True
-        Me.oTBubble.Location = New System.Drawing.Point(221, 77)
+        Me.oTBubble.Location = New System.Drawing.Point(215, 92)
         Me.oTBubble.Name = "oTBubble"
         Me.oTBubble.Size = New System.Drawing.Size(0, 13)
         Me.oTBubble.TabIndex = 18
@@ -211,7 +183,7 @@ Partial Class Output_Data
         'oNBubble
         '
         Me.oNBubble.AutoSize = True
-        Me.oNBubble.Location = New System.Drawing.Point(130, 77)
+        Me.oNBubble.Location = New System.Drawing.Point(124, 92)
         Me.oNBubble.Name = "oNBubble"
         Me.oNBubble.Size = New System.Drawing.Size(0, 13)
         Me.oNBubble.TabIndex = 17
@@ -219,7 +191,7 @@ Partial Class Output_Data
         'oTSelection
         '
         Me.oTSelection.AutoSize = True
-        Me.oTSelection.Location = New System.Drawing.Point(221, 101)
+        Me.oTSelection.Location = New System.Drawing.Point(215, 116)
         Me.oTSelection.Name = "oTSelection"
         Me.oTSelection.Size = New System.Drawing.Size(0, 13)
         Me.oTSelection.TabIndex = 20
@@ -227,7 +199,7 @@ Partial Class Output_Data
         'oNSelection
         '
         Me.oNSelection.AutoSize = True
-        Me.oNSelection.Location = New System.Drawing.Point(130, 101)
+        Me.oNSelection.Location = New System.Drawing.Point(124, 116)
         Me.oNSelection.Name = "oNSelection"
         Me.oNSelection.Size = New System.Drawing.Size(0, 13)
         Me.oNSelection.TabIndex = 19
@@ -235,7 +207,7 @@ Partial Class Output_Data
         'oTInsertion
         '
         Me.oTInsertion.AutoSize = True
-        Me.oTInsertion.Location = New System.Drawing.Point(221, 125)
+        Me.oTInsertion.Location = New System.Drawing.Point(215, 140)
         Me.oTInsertion.Name = "oTInsertion"
         Me.oTInsertion.Size = New System.Drawing.Size(0, 13)
         Me.oTInsertion.TabIndex = 22
@@ -243,7 +215,7 @@ Partial Class Output_Data
         'oNInsertion
         '
         Me.oNInsertion.AutoSize = True
-        Me.oNInsertion.Location = New System.Drawing.Point(130, 125)
+        Me.oNInsertion.Location = New System.Drawing.Point(124, 140)
         Me.oNInsertion.Name = "oNInsertion"
         Me.oNInsertion.Size = New System.Drawing.Size(0, 13)
         Me.oNInsertion.TabIndex = 21
@@ -251,7 +223,7 @@ Partial Class Output_Data
         'oTGnome
         '
         Me.oTGnome.AutoSize = True
-        Me.oTGnome.Location = New System.Drawing.Point(221, 148)
+        Me.oTGnome.Location = New System.Drawing.Point(215, 163)
         Me.oTGnome.Name = "oTGnome"
         Me.oTGnome.Size = New System.Drawing.Size(0, 13)
         Me.oTGnome.TabIndex = 24
@@ -259,7 +231,7 @@ Partial Class Output_Data
         'oNGnome
         '
         Me.oNGnome.AutoSize = True
-        Me.oNGnome.Location = New System.Drawing.Point(130, 148)
+        Me.oNGnome.Location = New System.Drawing.Point(124, 163)
         Me.oNGnome.Name = "oNGnome"
         Me.oNGnome.Size = New System.Drawing.Size(0, 13)
         Me.oNGnome.TabIndex = 23
@@ -267,7 +239,7 @@ Partial Class Output_Data
         'oTShell
         '
         Me.oTShell.AutoSize = True
-        Me.oTShell.Location = New System.Drawing.Point(221, 171)
+        Me.oTShell.Location = New System.Drawing.Point(215, 186)
         Me.oTShell.Name = "oTShell"
         Me.oTShell.Size = New System.Drawing.Size(0, 13)
         Me.oTShell.TabIndex = 26
@@ -275,7 +247,7 @@ Partial Class Output_Data
         'oNShell
         '
         Me.oNShell.AutoSize = True
-        Me.oNShell.Location = New System.Drawing.Point(130, 171)
+        Me.oNShell.Location = New System.Drawing.Point(124, 186)
         Me.oNShell.Name = "oNShell"
         Me.oNShell.Size = New System.Drawing.Size(0, 13)
         Me.oNShell.TabIndex = 25
@@ -287,7 +259,7 @@ Partial Class Output_Data
         Me.Chart1.ChartAreas.Add(ChartArea1)
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(13, 202)
+        Me.Chart1.Location = New System.Drawing.Point(12, 213)
         Me.Chart1.Name = "Chart1"
         Me.Chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
         Series1.ChartArea = "ChartArea1"
@@ -330,7 +302,7 @@ Partial Class Output_Data
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(24, 737)
+        Me.Button1.Location = New System.Drawing.Point(352, 618)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(183, 23)
         Me.Button1.TabIndex = 29
