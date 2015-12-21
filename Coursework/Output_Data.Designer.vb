@@ -49,12 +49,16 @@ Partial Class Output_Data
         '
         'bClose
         '
+        Me.bClose.BackColor = System.Drawing.Color.Transparent
+        Me.bClose.BackgroundImage = Global.Coursework.My.Resources.Resources.Back
+        Me.bClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.bClose.FlatAppearance.BorderSize = 0
+        Me.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bClose.Location = New System.Drawing.Point(13, 13)
         Me.bClose.Name = "bClose"
-        Me.bClose.Size = New System.Drawing.Size(75, 23)
+        Me.bClose.Size = New System.Drawing.Size(60, 60)
         Me.bClose.TabIndex = 0
-        Me.bClose.Text = "Close"
-        Me.bClose.UseVisualStyleBackColor = True
+        Me.bClose.UseVisualStyleBackColor = False
         '
         'oStart
         '
@@ -87,6 +91,7 @@ Partial Class Output_Data
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Location = New System.Drawing.Point(10, 149)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
@@ -96,6 +101,7 @@ Partial Class Output_Data
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Location = New System.Drawing.Point(10, 173)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 13)
@@ -105,6 +111,7 @@ Partial Class Output_Data
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Location = New System.Drawing.Point(10, 197)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(47, 13)
@@ -114,6 +121,7 @@ Partial Class Output_Data
         'Label4
         '
         Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Location = New System.Drawing.Point(10, 220)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(41, 13)
@@ -123,6 +131,7 @@ Partial Class Output_Data
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.Transparent
         Me.Label5.Location = New System.Drawing.Point(10, 243)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(30, 13)
@@ -132,6 +141,7 @@ Partial Class Output_Data
         'Label6
         '
         Me.Label6.AutoSize = True
+        Me.Label6.BackColor = System.Drawing.Color.Transparent
         Me.Label6.Location = New System.Drawing.Point(110, 120)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(15, 13)
@@ -141,6 +151,7 @@ Partial Class Output_Data
         'Label7
         '
         Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Location = New System.Drawing.Point(201, 120)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(30, 13)
@@ -231,7 +242,7 @@ Partial Class Output_Data
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1000, 772)
         Me.Controls.Add(Me.oTShell)
         Me.Controls.Add(Me.oNShell)

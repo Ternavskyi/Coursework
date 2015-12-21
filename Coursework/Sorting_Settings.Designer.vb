@@ -30,16 +30,20 @@ Partial Class Sorting_Settings
         '
         'bClose
         '
+        Me.bClose.BackColor = System.Drawing.Color.Transparent
+        Me.bClose.BackgroundImage = Global.Coursework.My.Resources.Resources.Back
+        Me.bClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.bClose.FlatAppearance.BorderSize = 0
+        Me.bClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.bClose.Location = New System.Drawing.Point(13, 13)
         Me.bClose.Name = "bClose"
         Me.bClose.Size = New System.Drawing.Size(60, 60)
         Me.bClose.TabIndex = 0
-        Me.bClose.Text = "Close"
-        Me.bClose.UseVisualStyleBackColor = True
+        Me.bClose.UseVisualStyleBackColor = False
         '
         'cbSorting_Setting
         '
-        Me.cbSorting_Setting.BackColor = System.Drawing.Color.Aqua
+        Me.cbSorting_Setting.BackColor = System.Drawing.SystemColors.Control
         Me.cbSorting_Setting.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.cbSorting_Setting.CheckOnClick = True
         Me.cbSorting_Setting.FormattingEnabled = True
@@ -62,7 +66,7 @@ Partial Class Sorting_Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.Aqua
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1000, 772)
         Me.Controls.Add(Me.bSent_Seting)
         Me.Controls.Add(Me.cbSorting_Setting)

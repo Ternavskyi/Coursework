@@ -7,9 +7,9 @@
         hh = General.hg
         Me.Width = wh
         Me.Height = hh
-        bInput_Data.Location = New Point(Me.Width / 2 - bInput_Data.Width / 2 - 130, Me.Height / 2 - bInput_Data.Height / 2)
+        bInput_Data.Location = New Point(Me.Width / 2 - bInput_Data.Width / 2 - bSorting_Setting.Width - 100, Me.Height / 2 - bInput_Data.Height / 2)
         bSorting_Setting.Location = New Point(Me.Width / 2 - bSorting_Setting.Width / 2, Me.Height / 2 - bSorting_Setting.Height / 2)
-        bOutput_Data.Location = New Point(Me.Width / 2 - bOutput_Data.Width / 2 + 130, Me.Height / 2 - bOutput_Data.Height / 2)
+        bOutput_Data.Location = New Point(Me.Width / 2 - bOutput_Data.Width / 2 + bSorting_Setting.Width + 100, Me.Height / 2 - bOutput_Data.Height / 2)
     End Sub
 
     Private Sub bInput_Data_Click(sender As Object, e As EventArgs) Handles bInput_Data.Click
