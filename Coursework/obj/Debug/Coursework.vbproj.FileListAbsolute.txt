@@ -13,4 +13,34 @@ D:\Coursework\Coursework\obj\Debug\Coursework.Home.resources
 D:\Coursework\Coursework\obj\Debug\Coursework.Input_Data.resources
 D:\Coursework\Coursework\obj\Debug\Coursework.Output_Data.resources
 D:\Coursework\Coursework\obj\Debug\Coursework.Sorting_Settings.resources
-D:\Coursework\Coursework\obj\Debug\Coursework.Visualization_Rectangles.resources
+D:\Coursework\Coursework\obj\Debug\Coursework.Visualization.resources
+D:\Coursework\Coursework\obj\Debug\Coursework.About_Program.resources
+\\Ternavskyi-home\d\Coursework\Coursework\bin\Debug\Coursework.exe.config
+\\Ternavskyi-home\d\Coursework\Coursework\obj\Debug\Coursework.exe
+\\Ternavskyi-home\d\Coursework\Coursework\obj\Debug\Coursework.xml
+\\Ternavskyi-home\d\Coursework\Coursework\obj\Debug\Coursework.pdb
+D:\Coursework\Coursework\obj\Debug\Coursework.About_Creator.resources
+D:\Coursework\Coursework\obj\Debug\Coursework.About_IDE.resources
+C:\Users\terna\Documents\Coursework\Coursework\bin\Debug\Coursework.exe.config
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.exe
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.xml
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.pdb
+C:\Users\terna\Documents\Coursework\Coursework\bin\Debug\Coursework.exe
+C:\Users\terna\Documents\Coursework\Coursework\bin\Debug\Coursework.pdb
+C:\Users\terna\Documents\Coursework\Coursework\bin\Debug\Coursework.xml
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.vbprojResolveAssemblyReference.cache
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.About_Creator.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.About_IDE.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.About_Program.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.General.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.Home.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.Input_Data.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.Resources.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.Output_Data.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.Sorting_Settings.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.Visualization.resources
+C:\Users\terna\Documents\Coursework\Coursework\obj\Debug\Coursework.vbproj.GenerateResource.Cache
+D:\Drive\Google Drive\Coursework\Coursework\bin\Debug\Coursework.exe.config
+D:\Drive\Google Drive\Coursework\Coursework\obj\Debug\Coursework.exe
+D:\Drive\Google Drive\Coursework\Coursework\obj\Debug\Coursework.xml
+D:\Drive\Google Drive\Coursework\Coursework\obj\Debug\Coursework.pdb

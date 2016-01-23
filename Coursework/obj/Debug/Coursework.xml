@@ -22,7 +22,37 @@ Coursework
   обращений к ресурсу с помощью этого класса ресурса со строгой типизацией.
 </summary>
 </member>
+<member name="P:Coursework.My.Resources.Resources._Exit">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Arrow">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Coursework.My.Resources.Resources.Back">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Bubble_sort_animation">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Bubble_sort_example_300px">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Bubblesort_edited_color_svg">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Coursework">
 <summary>
   Поиск локализованного ресурса типа System.Drawing.Bitmap.
 </summary>
@@ -32,12 +62,97 @@ Coursework
   Поиск локализованного ресурса типа System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Coursework.My.Resources.Resources.Git">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.GitHub">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Ico">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.IDE">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Insertion_sort_animation11">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Insertion_sort_example_300px">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Prok">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Selection_Sort_Animation">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Selection_sort_animation12">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Shell_sorting_algorithm_color_bars_svg">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Coursework.My.Resources.Resources.Sort">
 <summary>
   Поиск локализованного ресурса типа System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Coursework.My.Resources.Resources.Sorting_gnomesort_anim">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Coursework.My.Resources.Resources.Sorting_Setting">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Sorting_shellsort_anim">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Table">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Ternavskyi_Roman">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Visual">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.Visualization">
+<summary>
+  Поиск локализованного ресурса типа System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Coursework.My.Resources.Resources.VS">
 <summary>
   Поиск локализованного ресурса типа System.Drawing.Bitmap.
 </summary>

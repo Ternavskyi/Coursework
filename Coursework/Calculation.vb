@@ -2,69 +2,81 @@
 
     'Глобальні змінні на модуль.
     Public MatrixI(,) As Integer, MatrixO(,) As Integer
-    Public method(5) As Integer
     Public MatrixR(,) As Integer, BMatrixR(,) As Integer
     Public MatrixD(5, 3) As Single
     Public Cize As Integer
     Public isVisual As Boolean
     Public sleepTime As Integer
-    Public workMethod As Integer
     Public number As Integer
     Public time As New Stopwatch() 'Оголошення таймера.
+    Public Matrix_Sort_Method_Calculation(5, 2) As Integer
+    Public Work_Sort_Method As Integer
+    Public Index_Max_Min As Integer
+
+    Public Bubble_Matrix(100, 2) As Single
+    Public Selection_Matrix(100, 2) As Single
+    Public Insertion_Matrix(100, 2) As Single
+    Public Gnome_Matrix(100, 2) As Single
+    Public Shell_Matrix(100, 2) As Single
 
     Public Sub Sort() 'Почерговий виклик сабів Call ...().
+        If Index_Max_Min = 0 Then
+            Call Rebuild()
+        ElseIf Index_Max_Min = 1 Then
+            Call Rebuild2()
+        End If
 
-        Dim c As Integer
 
-        Call Rebuild()
+        For Work_Sort_Method = 0 To 4
 
-        For workMethod = 0 To 4
-
-            Select Case workMethod
+            Select Case Work_Sort_Method
                 Case 0
 
-                    If method(workMethod) = 1 Then
+                    If Matrix_Sort_Method_Calculation(Work_Sort_Method, 1) = 1 Then
                         Call Backup()
                         Call Bubble()
-                        MatrixD(0, 0) = 1
                     End If
 
                 Case 1
 
-                    If method(workMethod) = 1 Then
+                    If Matrix_Sort_Method_Calculation(Work_Sort_Method, 1) = 1 Then
                         Call Backup()
                         Call Selection()
-                        MatrixD(1, 0) = 1
                     End If
 
                 Case 2
 
-                    If method(workMethod) = 1 Then
+                    If Matrix_Sort_Method_Calculation(Work_Sort_Method, 1) = 1 Then
                         Call Backup()
                         Call Insertion()
-                        MatrixD(2, 0) = 1
                     End If
 
                 Case 3
 
-                    If method(workMethod) = 1 Then
+                    If Matrix_Sort_Method_Calculation(Work_Sort_Method, 1) = 1 Then
                         Call Backup()
                         Call Gnome()
-                        MatrixD(3, 0) = 1
                     End If
 
                 Case 4
 
-                    If method(workMethod) = 1 Then
+                    If Matrix_Sort_Method_Calculation(Work_Sort_Method, 1) = 1 Then
                         Call Backup()
                         Call Shell()
-                        MatrixD(4, 0) = 1
                     End If
 
             End Select
         Next
         Call Assembling()
 
+    End Sub
+
+    Public Sub Sort_Method_Calculation()
+        Dim r As Integer
+        For r = 0 To 4
+            Matrix_Sort_Method_Calculation(r, 0) = Sorting_Settings.Matrix_Sort_Method(r, 0)
+            Matrix_Sort_Method_Calculation(r, 1) = Sorting_Settings.Matrix_Sort_Method(r, 1)
+        Next
     End Sub
 
     'Саби які відповідають за генерування, перебудову і дублювання матриці.
@@ -92,7 +104,6 @@
 
         ReDim MatrixR(Cize, 2) 'Задання розмірності перебудованої матриці.
         Min = MatrixI(0, 0) 'Припущення що в першому рядку мінімальний елемент знаходиться у позиції (0,0).
-        Debug.Print("Rebuild**********************************************************************************")
 
         For r = 0 To Cize - 1 'Перебирання рядків.
             For c = 0 To Cize - 1 'Перебирання стовпців.
@@ -103,7 +114,27 @@
             MatrixR(r, 0) = r 'Запис у MatrixR (перебудовану матрицю) у перший стовпець індекс рядка MatrixI (початкової матриці).
             MatrixR(r, 1) = Min 'Запис у MatrixR (перебудовану матрицю) у другий стовпець мінімальний елеммент рядка MatrixI (початкової матриці).
             Min = MatrixI(r + 1, 0) 'Зміщення припущення мінімального елемента рядка на слідуючий рядок.
-            Debug.Print(MatrixR(r, 0) & "|" & MatrixR(r, 1))
+        Next 'Слідуючий рядок.
+
+    End Sub
+
+    Private Sub Rebuild2() 'Перебудова матриці із вигляду MatrixI(n,n) у вигляд MatrixR(n,2), де перший стовпець це індекс рядка MatrixI, а другий це найменші елемент рядка MatrixI.
+
+        Dim Min As Integer 'Змінні які запамятовують мінімальниий елемент у рядку матриці.
+        Dim r As Integer, c As Integer 'Змінні які будуть перебирати рядки і стовпці.
+
+        ReDim MatrixR(Cize, 2) 'Задання розмірності перебудованої матриці.
+        Min = MatrixI(0, 0) 'Припущення що в першому рядку мінімальний елемент знаходиться у позиції (0,0).
+
+        For r = 0 To Cize - 1 'Перебирання рядків.
+            For c = 0 To Cize - 1 'Перебирання стовпців.
+                If Min < MatrixI(r, c) Then 'Перевірка чи менший елемент MatrixI(r, c) за мінімальний.
+                    Min = MatrixI(r, c) 'Присвоєння мінімальному елементу значення MatrixI(r, c).
+                End If 'Закінчення перевірки.
+            Next 'Слідуючий стовпець.
+            MatrixR(r, 0) = r 'Запис у MatrixR (перебудовану матрицю) у перший стовпець індекс рядка MatrixI (початкової матриці).
+            MatrixR(r, 1) = Min 'Запис у MatrixR (перебудовану матрицю) у другий стовпець мінімальний елеммент рядка MatrixI (початкової матриці).
+            Min = MatrixI(r + 1, 0) 'Зміщення припущення мінімального елемента рядка на слідуючий рядок.
         Next 'Слідуючий рядок.
 
     End Sub
@@ -119,14 +150,6 @@
                 BMatrixR(r, c) = MatrixR(r, c) 'Дубоювання значення із MatrixR(r, c) в BMatrixR(r, c).
             Next 'Слідуючий стовпець.
         Next 'Слідуючий рядок.
-
-    End Sub
-
-    Public Sub Method_Sort()
-        Dim c As Integer
-        For c = 0 To 4
-            method(c) = Sorting_Settings.method(c)
-        Next
     End Sub
 
     Private Sub Assembling()
@@ -154,7 +177,7 @@
 
             If P > N Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
                 Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
-                If Calculation.isVisual Then Visualization_Rectangles.Creat()
+                If Calculation.isVisual Then Visualization.Creat()
             End If 'Закінчення перевірки.
             ' провірка чи потрібна візуалізація з форми.
             ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
@@ -165,7 +188,7 @@
 
             If SpecificAgent > P Then 'Порівняння двох елементів BMatrixR(r, 1) і BMatrixR(r+1, 1).
                 Answer = True 'При виконання умови Answer (відповідь) змінює своє значення на True.
-                If Calculation.isVisual Then Visualization_Rectangles.Creat()
+                If Calculation.isVisual Then Visualization.Creat()
             End If 'Закінчення перевірки.
             ' провірка чи потрібна візуалізація з форми.
             ' Якщо потрібна то реалізовувати візуалізації  (виконувати її в іншому сабі). У відповідності від answer = True чи фолс зробити інший колір рядка. Виділити мінімальний елемент в кожному рядку іншим кольором.
@@ -195,12 +218,12 @@
     Private Sub Bubble() 'Метод сортування бульбашкою "0".
 
         Dim r As Integer 'Змінна яка буде перебирати рядки.
+        Dim i As Integer
         Dim check As Integer 'check (перевірка) зміна для перевірки чи проводився захід у функцію Transposition за весь цикл проходу по всіх рядках матриці BMatrixR.
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
-
-
+        Debug.Print("*********************************************************************")
+        Debug.Print("Bubble")
         MatrixD(0, 0) = 0 'Індекс методу сортування "0"
-        Debug.Print("Bubble**********************************************************************************")
         time.Reset()
         time.Start() 'Старт таймера.
         number = 0 'Кількість перестановок.
@@ -211,18 +234,16 @@
                     Transposition(r, r + 1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
                     number = number + 1 'Кількість 
                     check = 1 'Присвоюємо значення яке повідомляє циклу що в фунцію Transposition цикл заходив.
+                    Debug.Print(number & "#" & time.Elapsed.TotalMilliseconds)
                 End If 'Закінчення перевірки.
             Next 'Слідуючий рядок.
         Loop Until check = 0 'Робимо перевірку уммови оскільки в нас цикл пряцює доки check не дорівнює нулю.
+        If Calculation.isVisual Then Visualization.Creat()
+        If Calculation.isVisual Then Threading.Thread.Sleep(4000)
 
         time.Stop() 'Зупинка таймера.
         MatrixD(0, 1) = number 'Запис в матрицю MatrixD(0, 2) кількості перестановок.
         MatrixD(0, 2) = time.Elapsed.TotalMilliseconds 'Запис в матрицю MatrixD(0, 2) часу сортування.
-        Debug.Print(MatrixD(0, 0) & "|" & MatrixD(0, 1) & "|" & MatrixD(0, 2))
-        Debug.Print("**********************************************************************************")
-        For r = 0 To Cize - 1
-            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
-        Next
 
     End Sub
 
@@ -232,9 +253,9 @@
         Dim rMin As Integer 'Змінна яка запамятовує мінімальниий елемент у стовпці матриці.
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння
 
-
+        Debug.Print("*********************************************************************")
+        Debug.Print("Selection")
         MatrixD(1, 0) = 1 'Індекс методу сортування "1"
-        Debug.Print("Selection**********************************************************************************")
         time.Reset()
         time.Start() 'Старт таймера.
         number = 0 'Кількість перестановок.
@@ -247,17 +268,14 @@
             Next 'Слідуючий рядок r2.
             Transposition(r1, rMin) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
             number = number + 1 'Кількість перестановок
+            Debug.Print(number & "#" & time.Elapsed.TotalMilliseconds)
         Next 'Слідуючий рядок r1.
+        If Calculation.isVisual Then Visualization.Creat()
+        If Calculation.isVisual Then Threading.Thread.Sleep(4000)
 
         time.Stop() 'Зупинка таймера.
         MatrixD(1, 1) = number 'Запис в матрицю MatrixD(1, 2) кількості перестановок.
         MatrixD(1, 2) = time.Elapsed.TotalMilliseconds 'Запис в матрицю MatrixD(1, 2) часу сортування.
-        Debug.Print(MatrixD(1, 0) & "|" & MatrixD(1, 1) & "|" & MatrixD(1, 2))
-        Debug.Print("**********************************************************************************")
-        For r = 0 To Cize - 1
-            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
-        Next
-
     End Sub
 
     Private Sub Insertion() 'Метод сортування вставкою "2".
@@ -266,9 +284,9 @@
         Dim NumberAgent As Integer 'Змінна яка тимчасово запамятовує індекс рядка.
         Dim SpecificAgent As Integer 'Змінна яка тимчасово запамятовує значення комірки.
 
-
+        Debug.Print("*********************************************************************")
+        Debug.Print("Insertion")
         MatrixD(2, 0) = 2 'Індекс методу сортування "2"
-        Debug.Print("Insertion**********************************************************************************")
         time.Reset()
         time.Start() 'Старт таймера..
         number = 0 'Кількість перестановок.
@@ -283,21 +301,18 @@
                 BMatrixR(r2 + 1, 0) = BMatrixR(r2, 0) 'Присвоєння комірці BMatrixR(r2 + 1, 0) значення комірки BMatrixR(r2, 0).
                 BMatrixR(r2 + 1, 1) = BMatrixR(r2, 1) 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення комірки BMatrixR(r2, 1).
                 number = number + 1 'Кількість перестановок
+                Debug.Print(number & "#" & time.Elapsed.TotalMilliseconds)
                 r2 = r2 - 1 'Перебирання рядків починаючи r1 і йдемо назад до нульового рядка.
             Loop 'Закінчення циклу.
             BMatrixR(r2 + 1, 0) = NumberAgent 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення із буфера NumberAgent.
             BMatrixR(r2 + 1, 1) = SpecificAgent 'Присвоєння комірці BMatrixR(r2 + 1, 1) значення із буфера SpecificAgent.
         Next 'Наступний рядок.
+        If Calculation.isVisual Then Visualization.Creat()
+        If Calculation.isVisual Then Threading.Thread.Sleep(4000)
 
         time.Stop() 'Зупинка таймера.
         MatrixD(2, 1) = number 'Запис в матрицю MatrixD(2, 2) кількості перестановок.
         MatrixD(2, 2) = time.Elapsed.TotalMilliseconds 'Запис в матрицю MatrixD(2, 2) часу сортування.
-        Debug.Print(MatrixD(2, 0) & "|" & MatrixD(2, 1) & "|" & MatrixD(2, 2))
-        Debug.Print("**********************************************************************************")
-        For r = 0 To Cize - 1
-            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
-        Next
-
     End Sub
 
     Private Sub Gnome() 'Метод сортування гнома "3".
@@ -305,9 +320,9 @@
         Dim r1 As Integer, r2 As Integer 'Змінна яка буде перебирати рядки.
         Dim SpecificAgent = "usual sorting method" 'Констання для методів сортування у яких подяються лише номери рядків у функцію порівняння.
 
-
+        Debug.Print("*********************************************************************")
+        Debug.Print("Gnome")
         MatrixD(3, 0) = 3 'Індекс методу сортування "3"
-        Debug.Print("Gnome**********************************************************************************")
         time.Reset()
         time.Start() 'Старт таймера.
         r1 = 1 'Присвоєння індекса рядка.
@@ -317,6 +332,7 @@
             If Comparison(r1 - 1, r1, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                 Transposition(r1 - 1, r1) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
                 number = number + 1 'Кількість перестановок
+                Debug.Print(number & "#" & time.Elapsed.TotalMilliseconds)
                 r1 = r1 - 1 'Повернення на один рядок назад для перевірки порядку.
                 If r1 = 0 Then 'Перевірка чи не дойшли до початку матриці, якщо так значить ідемо в кінець матриці.
                     r1 = r2 'Присвоєння індекс слідуючого рядка.
@@ -327,16 +343,12 @@
                 r2 = r2 + 1 'Перехід на один рядок вперед.
             End If 'Закінчення перевірки.
         Loop 'Закінчення циклу
+        If Calculation.isVisual Then Visualization.Creat()
+        If Calculation.isVisual Then Threading.Thread.Sleep(4000)
 
         time.Stop() 'Зупинка таймера.
         MatrixD(3, 1) = number 'Запис в матрицю MatrixD(3, 2) кількості перестановок.
         MatrixD(3, 2) = time.Elapsed.TotalMilliseconds 'Запис в матрицю MatrixD(3, 2) часу сортування.
-        Debug.Print(MatrixD(3, 0) & "|" & MatrixD(3, 1) & "|" & MatrixD(3, 2))
-        Debug.Print("**********************************************************************************")
-        For r = 0 To Cize - 1
-            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
-        Next
-
     End Sub
 
     Private Sub Shell() 'Метод сортування Шелла "4".
@@ -346,9 +358,9 @@
         Dim Half As Integer 'Змінна яка приймає індекс середнього рядка масиву BMatrixR(,).
         Dim Answer As Boolean 'Змміння яка приймає значення True або False
 
-
+        Debug.Print("*********************************************************************")
+        Debug.Print("Shell")
         MatrixD(4, 0) = 4 'Індекс методу сортування "4"
-        Debug.Print("Shell**********************************************************************************")
         time.Reset()
         time.Start() 'Старт таймера.
         Half = Cize \ 2 'Знаходження індексу середнього рядка масиву BMatrixR(,).
@@ -362,6 +374,7 @@
                     If Comparison(r2, r2 + Half, SpecificAgent) Then 'Звернення до функції Comparison для порівняння значень.
                         Transposition(r2, r2 + Half) 'Звертаємося до функції Transposition аби фона поміняла місцями значенння.
                         number = number + 1 'Кількість перестановок
+                        Debug.Print(number & "#" & time.Elapsed.TotalMilliseconds)
                     Else 'Якщо перевірка не виконалася тоді:
                         Answer = False 'Присвоюємо зміній Answer значення False.
                     End If 'Закінчення перевірки.
@@ -371,16 +384,12 @@
             Loop While r1 <= Cize - 1 'Закінчення циклу.
             Half = Half \ 2 'Знаходимо індекс середнього рядка із Half.
         Loop While Half > 0 'Закінчення циклу.
+        If Calculation.isVisual Then Visualization.Creat()
+        If Calculation.isVisual Then Threading.Thread.Sleep(4000)
 
         time.Stop() 'Зупинка таймера.
         MatrixD(4, 1) = number 'Запис в матрицю MatrixD(4, 2) кількості перестановок.
         MatrixD(4, 2) = time.Elapsed.TotalMilliseconds 'Запис в матрицю MatrixD(4, 2) часу сортування.
-        Debug.Print(MatrixD(4, 0) & "|" & MatrixD(4, 1) & "|" & MatrixD(4, 2))
-        Debug.Print("**********************************************************************************")
-        For r = 0 To Cize - 1
-            Debug.Print(BMatrixR(r, 0) & "|" & BMatrixR(r, 1))
-        Next
-
     End Sub
 
 End Module

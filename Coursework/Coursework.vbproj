@@ -79,6 +79,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About_Creator.Designer.vb">
+      <DependentUpon>About_Creator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About_Creator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About_IDE.Designer.vb">
+      <DependentUpon>About_IDE.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About_IDE.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About_Program.Designer.vb">
+      <DependentUpon>About_Program.vb</DependentUpon>
+    </Compile>
+    <Compile Include="About_Program.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Calculation.vb" />
     <Compile Include="General.Designer.vb">
       <DependentUpon>General.vb</DependentUpon>
@@ -125,20 +143,23 @@
     <Compile Include="Sorting_Settings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visualization_Lines.Designer.vb">
-      <DependentUpon>Visualization_Lines.vb</DependentUpon>
+    <Compile Include="Visualization.Designer.vb">
+      <DependentUpon>Visualization.vb</DependentUpon>
     </Compile>
-    <Compile Include="Visualization_Lines.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visualization_Rectangles.Designer.vb">
-      <DependentUpon>Visualization_Rectangles.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Visualization_Rectangles.vb">
+    <Compile Include="Visualization.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="About_Creator.resx">
+      <DependentUpon>About_Creator.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About_IDE.resx">
+      <DependentUpon>About_IDE.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About_Program.resx">
+      <DependentUpon>About_Program.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="General.resx">
       <DependentUpon>General.vb</DependentUpon>
     </EmbeddedResource>
@@ -150,9 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Output_Data.resx">
       <DependentUpon>Output_Data.vb</DependentUpon>
@@ -160,8 +181,8 @@
     <EmbeddedResource Include="Sorting_Settings.resx">
       <DependentUpon>Sorting_Settings.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visualization_Rectangles.resx">
-      <DependentUpon>Visualization_Rectangles.vb</DependentUpon>
+    <EmbeddedResource Include="Visualization.resx">
+      <DependentUpon>Visualization.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +200,29 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Coursework.ico" />
+    <None Include="Resources\Visualization.gif" />
+    <None Include="Resources\Shell_sorting_algorithm_color_bars.svg.png" />
+    <None Include="Resources\Sorting_shellsort_anim.gif" />
+    <None Include="Resources\Sorting_gnomesort_anim.gif" />
+    <None Include="Resources\Insertion-sort-example-300px.gif" />
+    <None Include="Resources\Insertion_sort_animation11.gif" />
+    <None Include="Resources\Selection-Sort-Animation.gif" />
+    <None Include="Resources\Selection_sort_animation12.gif" />
+    <None Include="Resources\Bubblesort-edited-color.svg.png" />
+    <None Include="Resources\Bubble-sort-example-300px.gif" />
+    <None Include="Resources\Bubble_sort_animation.gif" />
+    <None Include="Resources\Table.png" />
+    <None Include="Resources\Ternavskyi_Roman.jpg" />
+    <None Include="Resources\Prok.png" />
+    <None Include="Resources\Visual.png" />
+    <None Include="Resources\IDE.png" />
+    <None Include="Resources\GitHub.png" />
+    <None Include="Resources\Git.png" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\VS.png" />
+    <None Include="Resources\Coursework.png" />
+    <None Include="Resources\Ico.png" />
+    <None Include="Resources\Arrow.png" />
     <None Include="Resources\Back.png" />
     <None Include="Resources\Sort.png" />
     <None Include="Resources\Sorting_Setting.png" />
